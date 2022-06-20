@@ -120,17 +120,29 @@ arbitraire des observations dans le fichier.`
 
 
 
+
+
+
 ### Creation et correction des variables
 
+(1) La commande *rename*
+    La commande rename (abrégée
+en ren) permet de changer le nom de la variable qui suit. Sa syntax est 
+`rename ancien_non nouveau_nom`
 
-(1) Les commandes *generate* et *replace* 
+
+(2) Les commandes *generate* et *replace* 
     La commande generate crée de nouvelles variables. Elle a la syntaxe de base suivante: 
     *[by listevar:] generate var = exp[if exp] [in intervalle]*
     La commande replace utilise la même syntaxe, sauf qu'elle s'applique aux variables déjà existantes.
 
+  Comme on le voit, cette syntaxe est simple, ce qui n'est pas le cas de la forme que peut prendre exp. La première expression   exp (après le signe =) spécifie le contenu de la variable, c'est-àdire   le plus souvent une valeur numérique. La seconde   expression exp (après *if*) doit être formulée comme une   expression logique dont le résultat est soit vrai soit faux: la   création (ou le remplacement) de la variable est restreint aux   observations pour lesquelles le résultat de l'expression est vrai.   Cela n'a l'air de rien, mais la confusion entre les deux   expressions est certainement l'erreur la plus fréquente que peuvent faire les utilisateurs de Stata.
 
-  Comme on le voit, cette syntaxe est simple, ce qui n'est pas le cas de la forme que peut prendre exp. La première expression   exp (après le signe =) spécifie le contenu de la variable, c'est-àdire   le plus souvent une valeur numérique. La seconde   expression exp (après if) doit être formulée comme une   expression logique dont le résultat est soit vrai soit faux: la   création (ou le remplacement) de la variable est restreint aux   observations pour lesquelles le résultat de l'expression est vrai.   Cela n'a l'air de rien, mais la confusion entre les deux   expressions est certainement l'erreur la plus fréquente que peuvent faire les utilisateurs de Stata.
 
+(3) Les commandes *tostring* et *destring*
+ces commandes permettent de modifier le types des variables en string ou de modifier les string ne contenanr que des caractères numériques en variables numériques.
+ la commande _tostring*_ permet de mettre tous les caractètes de la base des données en chaines des caractères (strings) avec une ligne des codes.
+ 
 
 (2) Les opérateurs
 
@@ -151,6 +163,7 @@ gauche du signe = tandis que la valeur affectée apparaît à droite:
 
 (3) Les expressions logiques dans R
 
+
 Les expressions logiques sont particulièrement utiles pour créer
 des variables dichotomiques, c'est-à-dire qui ne prennent que
 deux valeurs, 0 et 1. En effet, une expression logique, c'est-àdire
@@ -163,8 +176,73 @@ La commande tabulate possède une option generate ( ) bien
 pratique pour créer une série de variables dichotomiques à partir
 d'une variable polytomique. Exécutez la série de commandes:
 
+(4) Gestions des dates et Formatage des variables
+
+(4) **La commande drop et la commande keep**
+
+Pour travailler sur une base de données pratique en vue des objectifs que vous avez, il sera  peut-être néecessaire de supprimer les variables inutiles ou les observations non concernées par vos estimations. La variable keep vous permet de garder et drop de jeter... facile, non ? On les utilise alternativement selon le nombre de variables µa garder ou µa jeter.
+
+` keep age salaire pays marital`
+` drop age15 salred salaire150 fdsrt azerty`
 
 
-**La commande drop et la commande keep**
+
+(6) Definir les labels des variables et des valeurs
+Avec les observations et les commandes logiques, il est possible de préciser ce que l'on veut effacer en le conditionnant µa la valeur d'autres variables. Par exemple, on garde les plus de 15 ans :
+
+`keep if age>=15` 
+ou bien on supprime les individus nés en 1945 et 1968 :
+
+`drop if naissance==1915 | naissance==1968`
 
 
+(5) Les commandes sort et by
+La commande sort (abrégée en so) classe les données par ordre croissant. Il est possible de
+préciser les variables selon lesquelles le classement peut ^etre e®ectué :
+
+
+`sort sexe age`
+
+Cette commande va classer les observations par sexe (d'abord les femmes en numéro 0 et puis
+les hommes en numéro 1, par exemple) puis au sein de chaque sexe par age (les femmes et les
+enfants d'abord). On peut utiliser la commande gsort pour e®ectuer des classements dans des
+ordres croissant ou décroissant. Un + ou un - vient donner le sens du classement au sein de chaque
+variable.
+
+`sort sexe -age`
+
+Cela classe d'abord par sexe puis par ^age décroissant (les femmes et les vieux d'abord).
+Le processus by ... : qui doit suivre obligatoirement un classement avec sort permet d'uti-
+liser la plupart des commandes pour chaque valeur de la variable indiquée par by. Les exemples
+suivants vont vous aider µa comprendre le principe :
+
+
+
+
+
+### Combiner différentes bases de données : append et merge
+
+Pour travailler de fa»con e±cace, il faut souvent réunir difféerentes bases de données. Selon le type de combination, on va utiliser une commande différennte.
+
+
+
+(1) Ajouter des observations Si vous disposer par exemple de données sur l'emploi dans di®érents
+pays et que vous avez une base de donnée par pays avec les m^emes variables (emploi, salaire,
+temps de travail...), alors vous souhaitez ajouter des observations (rajouter des lignes). Votre
+premier soin est de créer une variable pays dans chaque base de donnée en indiquant pour
+toutes les observations de ce pays le m^eme nom ou code. Ensuite vous pouvez utiliser la
+commande append de la fa»con suivante :
+
+(2) Ajouter des variables Si vous souhaitez ajouter des variables, alors il faudra utiliser la com-
+mande merge. Par exemple, vous avez deux bases de données sur entreprise (les m^emes
+entreprises) et l'une donne des informations sur la production et l'autre sur les salariés. Si vous voulez calculer la productivité de ces entreprises, il faudra combiner ces deux bases. La procédure est légèrement plus complexe qu'avec _append_. Etant donné que certaines variables sont communes aux deux bases (au moins l'identifiant des entreprises), il faut classer ces variables avec sort dans les deux bases pour permettre au logiciel de faire la bonne fusion.
+
+
+
+La commande merge crée la variable merge qui permet de vérfier que la fusion a été  réalisée
+comme voulu. Elle peut prendre trois valeurs :
+- Les observations de la base principale n'ont pas été retrouvées dans la base ajoutée
+(celle aprµes using)
+- Les observations de la base ajoutée n'ont pas été retrouvées dans la base principale
+- Les observations dans les deux bases ont été retrouvées et connectées.
+Il faut toujours véri¯er que l'opération s'est bien déroulée en regardant si merge prend des valeurs di®érentes de 3. Si ce n'est pas le cas alors regardez pour quelles observations l'opération n'a pas fonctionné.

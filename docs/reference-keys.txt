@@ -10,6 +10,7 @@ les-commandes-de-base
 la-synthaxe-des-commandes-stata
 les-commandes-de-depart
 creation-et-correction-des-variables
+combiner-différentes-bases-de-données-append-et-merge
 analyse-univarié-bivariée-et-graphiques
 tableaux-croisés-à-deux-variables
 tableaux-croisés-à-trois-variables-ou-plus

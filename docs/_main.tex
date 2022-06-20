@@ -420,7 +420,11 @@ variables indique sur quelles variables doit s'effectuer la commande. Pour explo
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
-\tightlist
+\item
+  La commande \emph{rename}
+  La commande rename (abrégée
+  en ren) permet de changer le nom de la variable qui suit. Sa syntax est
+  \texttt{rename\ ancien\_non\ nouveau\_nom}
 \item
   Les commandes \emph{generate} et \emph{replace}
   La commande generate crée de nouvelles variables. Elle a la syntaxe de base suivante:
@@ -428,12 +432,15 @@ variables indique sur quelles variables doit s'effectuer la commande. Pour explo
   La commande replace utilise la même syntaxe, sauf qu'elle s'applique aux variables déjà existantes.
 \end{enumerate}
 
-Comme on le voit, cette syntaxe est simple, ce qui n'est pas le cas de la forme que peut prendre exp. La première expression exp (après le signe =) spécifie le contenu de la variable, c'est-àdire le plus souvent une valeur numérique. La seconde expression exp (après if) doit être formulée comme une expression logique dont le résultat est soit vrai soit faux: la création (ou le remplacement) de la variable est restreint aux observations pour lesquelles le résultat de l'expression est vrai. Cela n'a l'air de rien, mais la confusion entre les deux expressions est certainement l'erreur la plus fréquente que peuvent faire les utilisateurs de Stata.
+Comme on le voit, cette syntaxe est simple, ce qui n'est pas le cas de la forme que peut prendre exp. La première expression exp (après le signe =) spécifie le contenu de la variable, c'est-àdire le plus souvent une valeur numérique. La seconde expression exp (après \emph{if}) doit être formulée comme une expression logique dont le résultat est soit vrai soit faux: la création (ou le remplacement) de la variable est restreint aux observations pour lesquelles le résultat de l'expression est vrai. Cela n'a l'air de rien, mais la confusion entre les deux expressions est certainement l'erreur la plus fréquente que peuvent faire les utilisateurs de Stata.
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{1}
-\tightlist
+\setcounter{enumi}{2}
+\item
+  Les commandes \emph{tostring} et \emph{destring}
+  ces commandes permettent de modifier le types des variables en string ou de modifier les string ne contenanr que des caractères numériques en variables numériques.
+  la commande \_tostring*\_ permet de mettre tous les caractètes de la base des données en chaines des caractères (strings) avec une ligne des codes.
 \item
   Les opérateurs
 \end{enumerate}
@@ -473,7 +480,86 @@ La commande tabulate possède une option generate ( ) bien
 pratique pour créer une série de variables dichotomiques à partir
 d'une variable polytomique. Exécutez la série de commandes:
 
-\textbf{La commande drop et la commande keep}
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{3}
+\item
+  Gestions des dates et Formatage des variables
+\item
+  \textbf{La commande drop et la commande keep}
+\end{enumerate}
+
+Pour travailler sur une base de données pratique en vue des objectifs que vous avez, il sera peut-être néecessaire de supprimer les variables inutiles ou les observations non concernées par vos estimations. La variable keep vous permet de garder et drop de jeter\ldots{} facile, non ? On les utilise alternativement selon le nombre de variables µa garder ou µa jeter.
+
+\texttt{keep\ age\ salaire\ pays\ marital}
+\texttt{drop\ age15\ salred\ salaire150\ fdsrt\ azerty}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Definir les labels des variables et des valeurs
+  Avec les observations et les commandes logiques, il est possible de préciser ce que l'on veut effacer en le conditionnant µa la valeur d'autres variables. Par exemple, on garde les plus de 15 ans :
+\end{enumerate}
+
+\texttt{keep\ if\ age\textgreater{}=15}
+ou bien on supprime les individus nés en 1945 et 1968 :
+
+\texttt{drop\ if\ naissance==1915\ \textbar{}\ naissance==1968}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Les commandes sort et by
+  La commande sort (abrégée en so) classe les données par ordre croissant. Il est possible de
+  préciser les variables selon lesquelles le classement peut \^{}etre e®ectué :
+\end{enumerate}
+
+\texttt{sort\ sexe\ age}
+
+Cette commande va classer les observations par sexe (d'abord les femmes en numéro 0 et puis
+les hommes en numéro 1, par exemple) puis au sein de chaque sexe par age (les femmes et les
+enfants d'abord). On peut utiliser la commande gsort pour e®ectuer des classements dans des
+ordres croissant ou décroissant. Un + ou un - vient donner le sens du classement au sein de chaque
+variable.
+
+\texttt{sort\ sexe\ -age}
+
+Cela classe d'abord par sexe puis par \^{}age décroissant (les femmes et les vieux d'abord).
+Le processus by \ldots{} : qui doit suivre obligatoirement un classement avec sort permet d'uti-
+liser la plupart des commandes pour chaque valeur de la variable indiquée par by. Les exemples
+suivants vont vous aider µa comprendre le principe :
+
+\hypertarget{combiner-diffuxe9rentes-bases-de-donnuxe9es-append-et-merge}{%
+\subsection{Combiner différentes bases de données : append et merge}\label{combiner-diffuxe9rentes-bases-de-donnuxe9es-append-et-merge}}
+
+Pour travailler de fa»con e±cace, il faut souvent réunir difféerentes bases de données. Selon le type de combination, on va utiliser une commande différennte.
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  Ajouter des observations Si vous disposer par exemple de données sur l'emploi dans di®érents
+  pays et que vous avez une base de donnée par pays avec les m\^{}emes variables (emploi, salaire,
+  temps de travail\ldots), alors vous souhaitez ajouter des observations (rajouter des lignes). Votre
+  premier soin est de créer une variable pays dans chaque base de donnée en indiquant pour
+  toutes les observations de ce pays le m\^{}eme nom ou code. Ensuite vous pouvez utiliser la
+  commande append de la fa»con suivante :
+\item
+  Ajouter des variables Si vous souhaitez ajouter des variables, alors il faudra utiliser la com-
+  mande merge. Par exemple, vous avez deux bases de données sur entreprise (les m\^{}emes
+  entreprises) et l'une donne des informations sur la production et l'autre sur les salariés. Si vous voulez calculer la productivité de ces entreprises, il faudra combiner ces deux bases. La procédure est légèrement plus complexe qu'avec \emph{append}. Etant donné que certaines variables sont communes aux deux bases (au moins l'identifiant des entreprises), il faut classer ces variables avec sort dans les deux bases pour permettre au logiciel de faire la bonne fusion.
+\end{enumerate}
+
+La commande merge crée la variable merge qui permet de vérfier que la fusion a été réalisée
+comme voulu. Elle peut prendre trois valeurs :
+- Les observations de la base principale n'ont pas été retrouvées dans la base ajoutée
+(celle aprµes using)
+- Les observations de la base ajoutée n'ont pas été retrouvées dans la base principale
+- Les observations dans les deux bases ont été retrouvées et connectées.
+Il faut toujours véri¯er que l'opération s'est bien déroulée en regardant si merge prend des valeurs di®érentes de 3. Si ce n'est pas le cas alors regardez pour quelles observations l'opération n'a pas fonctionné.
 
 \hypertarget{analyse-univariuxe9-bivariuxe9e-et-graphiques}{%
 \chapter{Analyse Univarié, Bivariée et Graphiques}\label{analyse-univariuxe9-bivariuxe9e-et-graphiques}}

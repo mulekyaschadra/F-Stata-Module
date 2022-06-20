@@ -159,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.1" data-path="data-cleaning.html"><a href="data-cleaning.html#la-synthaxe-des-commandes-stata"><i class="fa fa-check"></i><b>2.2.1</b> La synthaxe des commandes stata</a></li>
 <li class="chapter" data-level="2.2.2" data-path="data-cleaning.html"><a href="data-cleaning.html#les-commandes-de-depart"><i class="fa fa-check"></i><b>2.2.2</b> Les commandes de depart</a></li>
 <li class="chapter" data-level="2.2.3" data-path="data-cleaning.html"><a href="data-cleaning.html#creation-et-correction-des-variables"><i class="fa fa-check"></i><b>2.2.3</b> Creation et correction des variables</a></li>
+<li class="chapter" data-level="2.2.4" data-path="data-cleaning.html"><a href="data-cleaning.html#combiner-différentes-bases-de-données-append-et-merge"><i class="fa fa-check"></i><b>2.2.4</b> Combiner différentes bases de données : append et merge</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="analyse-univarié-bivariée-et-graphiques.html"><a href="analyse-univarié-bivariée-et-graphiques.html"><i class="fa fa-check"></i><b>3</b> Analyse Univarié, Bivariée et Graphiques</a>
@@ -309,14 +310,21 @@ fonctionnement de ce suffixe:</li>
 <div id="creation-et-correction-des-variables" class="section level3 hasAnchor" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> Creation et correction des variables<a href="data-cleaning.html#creation-et-correction-des-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
-<li>Les commandes <em>generate</em> et <em>replace</em>
+<li><p>La commande <em>rename</em>
+La commande rename (abrégée
+en ren) permet de changer le nom de la variable qui suit. Sa syntax est
+<code>rename ancien_non nouveau_nom</code></p></li>
+<li><p>Les commandes <em>generate</em> et <em>replace</em>
 La commande generate crée de nouvelles variables. Elle a la syntaxe de base suivante:
 <em>[by listevar:] generate var = exp[if exp] [in intervalle]</em>
-La commande replace utilise la même syntaxe, sauf qu’elle s’applique aux variables déjà existantes.</li>
+La commande replace utilise la même syntaxe, sauf qu’elle s’applique aux variables déjà existantes.</p></li>
 </ol>
-<p>Comme on le voit, cette syntaxe est simple, ce qui n’est pas le cas de la forme que peut prendre exp. La première expression exp (après le signe =) spécifie le contenu de la variable, c’est-àdire le plus souvent une valeur numérique. La seconde expression exp (après if) doit être formulée comme une expression logique dont le résultat est soit vrai soit faux: la création (ou le remplacement) de la variable est restreint aux observations pour lesquelles le résultat de l’expression est vrai. Cela n’a l’air de rien, mais la confusion entre les deux expressions est certainement l’erreur la plus fréquente que peuvent faire les utilisateurs de Stata.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Les opérateurs</li>
+<p>Comme on le voit, cette syntaxe est simple, ce qui n’est pas le cas de la forme que peut prendre exp. La première expression exp (après le signe =) spécifie le contenu de la variable, c’est-àdire le plus souvent une valeur numérique. La seconde expression exp (après <em>if</em>) doit être formulée comme une expression logique dont le résultat est soit vrai soit faux: la création (ou le remplacement) de la variable est restreint aux observations pour lesquelles le résultat de l’expression est vrai. Cela n’a l’air de rien, mais la confusion entre les deux expressions est certainement l’erreur la plus fréquente que peuvent faire les utilisateurs de Stata.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Les commandes <em>tostring</em> et <em>destring</em>
+ces commandes permettent de modifier le types des variables en string ou de modifier les string ne contenanr que des caractères numériques en variables numériques.
+la commande _tostring*_ permet de mettre tous les caractètes de la base des données en chaines des caractères (strings) avec une ligne des codes.</p></li>
+<li><p>Les opérateurs</p></li>
 </ol>
 <p>Les opérateurs arithmétiques de Stata sont bien classiques:
 + (addition), - (soustraction), * (multiplication), 1 (division),
@@ -343,7 +351,58 @@ son résultat est faux.</p>
 <p>La commande tabulate possède une option generate ( ) bien
 pratique pour créer une série de variables dichotomiques à partir
 d’une variable polytomique. Exécutez la série de commandes:</p>
-<p><strong>La commande drop et la commande keep</strong></p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Gestions des dates et Formatage des variables</p></li>
+<li><p><strong>La commande drop et la commande keep</strong></p></li>
+</ol>
+<p>Pour travailler sur une base de données pratique en vue des objectifs que vous avez, il sera peut-être néecessaire de supprimer les variables inutiles ou les observations non concernées par vos estimations. La variable keep vous permet de garder et drop de jeter… facile, non ? On les utilise alternativement selon le nombre de variables µa garder ou µa jeter.</p>
+<p><code>keep age salaire pays marital</code>
+<code>drop age15 salred salaire150 fdsrt azerty</code></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Definir les labels des variables et des valeurs
+Avec les observations et les commandes logiques, il est possible de préciser ce que l’on veut effacer en le conditionnant µa la valeur d’autres variables. Par exemple, on garde les plus de 15 ans :</li>
+</ol>
+<p><code>keep if age&gt;=15</code>
+ou bien on supprime les individus nés en 1945 et 1968 :</p>
+<p><code>drop if naissance==1915 | naissance==1968</code></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Les commandes sort et by
+La commande sort (abrégée en so) classe les données par ordre croissant. Il est possible de
+préciser les variables selon lesquelles le classement peut ^etre e®ectué :</li>
+</ol>
+<p><code>sort sexe age</code></p>
+<p>Cette commande va classer les observations par sexe (d’abord les femmes en numéro 0 et puis
+les hommes en numéro 1, par exemple) puis au sein de chaque sexe par age (les femmes et les
+enfants d’abord). On peut utiliser la commande gsort pour e®ectuer des classements dans des
+ordres croissant ou décroissant. Un + ou un - vient donner le sens du classement au sein de chaque
+variable.</p>
+<p><code>sort sexe -age</code></p>
+<p>Cela classe d’abord par sexe puis par ^age décroissant (les femmes et les vieux d’abord).
+Le processus by … : qui doit suivre obligatoirement un classement avec sort permet d’uti-
+liser la plupart des commandes pour chaque valeur de la variable indiquée par by. Les exemples
+suivants vont vous aider µa comprendre le principe :</p>
+</div>
+<div id="combiner-différentes-bases-de-données-append-et-merge" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Combiner différentes bases de données : append et merge<a href="data-cleaning.html#combiner-différentes-bases-de-données-append-et-merge" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour travailler de fa»con e±cace, il faut souvent réunir difféerentes bases de données. Selon le type de combination, on va utiliser une commande différennte.</p>
+<ol style="list-style-type: decimal">
+<li><p>Ajouter des observations Si vous disposer par exemple de données sur l’emploi dans di®érents
+pays et que vous avez une base de donnée par pays avec les m^emes variables (emploi, salaire,
+temps de travail…), alors vous souhaitez ajouter des observations (rajouter des lignes). Votre
+premier soin est de créer une variable pays dans chaque base de donnée en indiquant pour
+toutes les observations de ce pays le m^eme nom ou code. Ensuite vous pouvez utiliser la
+commande append de la fa»con suivante :</p></li>
+<li><p>Ajouter des variables Si vous souhaitez ajouter des variables, alors il faudra utiliser la com-
+mande merge. Par exemple, vous avez deux bases de données sur entreprise (les m^emes
+entreprises) et l’une donne des informations sur la production et l’autre sur les salariés. Si vous voulez calculer la productivité de ces entreprises, il faudra combiner ces deux bases. La procédure est légèrement plus complexe qu’avec <em>append</em>. Etant donné que certaines variables sont communes aux deux bases (au moins l’identifiant des entreprises), il faut classer ces variables avec sort dans les deux bases pour permettre au logiciel de faire la bonne fusion.</p></li>
+</ol>
+<p>La commande merge crée la variable merge qui permet de vérfier que la fusion a été réalisée
+comme voulu. Elle peut prendre trois valeurs :
+- Les observations de la base principale n’ont pas été retrouvées dans la base ajoutée
+(celle aprµes using)
+- Les observations de la base ajoutée n’ont pas été retrouvées dans la base principale
+- Les observations dans les deux bases ont été retrouvées et connectées.
+Il faut toujours véri¯er que l’opération s’est bien déroulée en regardant si merge prend des valeurs di®érentes de 3. Si ce n’est pas le cas alors regardez pour quelles observations l’opération n’a pas fonctionné.</p>
 
 </div>
 </div>
