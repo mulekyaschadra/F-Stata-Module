@@ -1,5 +1,4 @@
 eq:binom
-thm:tri
 about
 pries-en-main-du-logiciel
 présentation-de-linterface
