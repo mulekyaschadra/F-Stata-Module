@@ -10,7 +10,7 @@ les-commandes-de-base
 la-synthaxe-des-commandes-stata
 les-commandes-de-depart
 creation-et-correction-des-variables
-les-statisiques-simples-et-leurs-representation-graphiques
+analyse-univarié-bivariée-et-graphiques
 tableaux-croisés-à-deux-variables
 tableaux-croisés-à-trois-variables-ou-plus
 la-modélisation-avec-stata
@@ -23,7 +23,7 @@ regression-logistique-ordonné
 analyse-des-données-de-logitudinales
 introduction-aux-series-temporelles
 données-de-panel
-analuse-de-survie
+analyse-de-survie
 analyses-exploratioires
 acp
 afc

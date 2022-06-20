@@ -165,6 +165,6 @@ d'une variable polytomique. Exécutez la série de commandes:
 
 
 
-**La commande drop**
+**La commande drop et la commande keep**
 
 

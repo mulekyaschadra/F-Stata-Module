@@ -19,18 +19,21 @@ github-repo: rstudio/bookdown-demo
 
 
 Ce document est écrit comme support de formation dans le logiciel STATA. une formation rélisé pour le Docteur Franc Lutu.
+
 Nous ne prétendons pas aborder toutes les connaissances disponibles dans STATA,
 neanmoins nou proposons les compétences éssentieles dans les aspects d'analyse des données.
+
+Nous nous basons sur la comprehension progressive. ce sont les bases qui determinent la comprehension des notions suivantes. `
 
 ce livre est téléchargeable en format pdf  ,sur le compte Github ci-sessous <https://github.org/mulekya_schadra/>.
 
 
 
 `Ce support est écrit dans le cadre d'apprentissage du logiciel STATA,  dans ce livre, les chapitres sont organisées de manière à inculter une certaine compétence dans l'analyse des donnes
-Ce cours est  reparti dans 5 chapitres, concernat les aspects de base (`#`) per 
+Ce cours est  reparti dans 5 chapitres, concernat les aspects de base du logiciel avec hierarchie
 
 
-Nous nous basons sur la comprehension progressive. ce sont les bases qui determinent la comprehension des notions suivantes. `
+
 
 
 

@@ -7,14 +7,11 @@
 
 ## Regtession lineaire
 
-:::
 
-Read more here <https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html>.
 
 ## regression Logistique
 
 
-The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
 
 
 ### Regresson logistique binoliale

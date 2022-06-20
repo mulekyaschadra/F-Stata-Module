@@ -11,7 +11,7 @@
 \contentsline {subsection}{\numberline {2.2.1}La synthaxe des commandes stata}{12}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Les commandes de depart}{13}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Creation et correction des variables}{13}{subsection.2.2.3}%
-\contentsline {chapter}{\numberline {3}Les Statisiques Simples et leurs representation Graphiques}{15}{chapter.3}%
+\contentsline {chapter}{\numberline {3}Analyse Univarié, Bivariée et Graphiques}{15}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Tableaux croisés à deux variables}{16}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Tableaux croisés à trois variables ou plus}{16}{subsection.3.1.1}%
 \contentsline {chapter}{\numberline {4}La Modélisation avec Stata}{17}{chapter.4}%
@@ -24,7 +24,7 @@
 \contentsline {chapter}{\numberline {5}Analyse des données de Logitudinales}{19}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Introduction aux series temporelles}{19}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Données de Panel}{19}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Analuse de Survie}{19}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Analyse de Survie}{19}{section.5.3}%
 \contentsline {chapter}{\numberline {6}Analyses Exploratioires}{21}{chapter.6}%
 \contentsline {section}{\numberline {6.1}ACP}{21}{section.6.1}%
 \contentsline {section}{\numberline {6.2}AFC}{21}{section.6.2}%

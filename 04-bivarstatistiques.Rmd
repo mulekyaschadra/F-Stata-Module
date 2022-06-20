@@ -1,5 +1,5 @@
-# Les Statisiques Simples et leurs representation Graphiques
-(Statistiques Univariées)
+# Analyse Univarié, Bivariée et Graphiques
+
 
 Avant de mener des analyses à l'aide de modèle de régression et
 autres statistiques complexes, il est préférable de tirer le
