@@ -1,0 +1,24 @@
+\contentsline {chapter}{\numberline {1}About}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Pries en main du logiciel}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Présentation de l'interface}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Definition de l'espace de travail}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}fenetres aditionnelles de Stata}{9}{section.2.3}%
+\contentsline {section}{\numberline {2.4}importation de la base des données}{9}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Fichier do (do-file)}{9}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Data CLeaning}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Les commandes de base}{12}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}La synthaxe des commandes stata}{12}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Les commandes de depart}{13}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Creation et correction des variables}{13}{subsection.3.2.3}%
+\contentsline {chapter}{\numberline {4}Les Statisiques Simples et leurs representation Graphiques}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Tableaux croisés à deux variables}{16}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Tableaux croisés à trois variables ou plus}{16}{subsection.4.1.1}%
+\contentsline {chapter}{\numberline {5}Blocks}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Equations}{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Theorems and proofs}{17}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Callout blocks}{17}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Sharing your book}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Publishing}{19}{section.6.1}%
+\contentsline {section}{\numberline {6.2}404 pages}{19}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Metadata for sharing}{19}{section.6.3}%

@@ -1,0 +1,170 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# Data CLeaning
+
+## Introduction
+
+Pourquoi manipuler les données en Stata et pas en Excel ? La raison est simple : pas mal des commandes que l’on va voir ci-dessous existent aussi en Excel et sont certes quelquefois plus simples (si on arrive à les trouver), mais par contre on perd vite le fil de ce que l’on a fait subir aux données avant de passer à l’estimation, et c’est parfois là que se cachent soit les quelques erreurs à l’origine de résultats grotesques soit, au contraire, les mauvais traitements infligés aux chiffres pour obtenir le résultat désiré.
+
+Avec Stata, on peut garder la trace de toutes les manipulations dans le do-file. Celui-ci doit contenir toutes les commandes permettant de passer du fichier-données brut à celui qui est prêt à l’estimation. Il est alors facile de retrouver l’erreur qui tue ou bien de vérifier ce que les chiffres ont subi entre les mains du bourreau avant d’avouer.
+
+
+
+La manipulation des données sous stata consiste à 
+
+- Typage des variable
+- remplaceme nt des valeurs manquantes
+- remplacement de certaines variables sous certaines conditions
+- codification des variable
+- recodage des variables 
+
+Ainsi, dans uune base des donénes, avant de commencer le nettoyage de la base des donnée sil surffit d'avoir une vue gloobale sur cette base en conaissant les caractéristiques générales de différnetes variables contenues dans la base des données.
+Ainsi, nous utilisons les commandes suivantes : 
+
+(1) **describe** : permet de décrire toutes les variables de la base des données chargée en mémoire.   il nous amène en sortie: le nombre des observation, le nombre des variables, les noms des variables , les labeks et les types de chaque variable sous forme de tableau. //Avec les options *short*  pour affichier le nom des variables,  *simple* pour affcicher le nombre des variables et le nombre d'observations dans la BD.
+(2) **codebook** pour voir les différentes ecaractéristiques des  variables dans la base des données.  utiliser codebook suivi du nom de la variable  pour ne voir que les caractéristiques d'une seule variable ou une liste des variables.
+(3) Visualisation de la BD sous forme de tableau
+    - *browse* pour affcicher uniquement; 
+    - *edit* pour pouvoir modifier manuellement les valeurs dans la base.
+
+
+
+##  Les commandes de base
+
+### La synthaxe des commandes stata
+
+Stata comme tous les logiciels, utilise un langage qui n'est ni de
+l'anglais, ni du français, mais son propre langage. Certes, les
+mots sont empruntés à la langue de Shakespeare, mais la syntaxe
+n'a rien à voir avec l'anglais. Hormis quelques exceptions, la
+syntaxe des commandes de Stata est:
+
+`[by listevar:] commande [listevar] [=exp] [if exp] [in intervalle] [pondération] [, options]`
+
+Le nom de la commande est évidemment obligatoire, et il peut
+éventuellement être précédé d'un préfixe by, et le plus souvent il
+est suivi d'un ou de plusieurs suffixes. Dans le cas de
+commandes particulièrement usuelles, il peut parfois être abrégé,
+comme par exemple d pour describe. Les suffixes sont  entourés de crochets pour indiquer leur caractère optionnel:
+listevar correspond à une liste de variables, exp à une
+expression logique, intervalle à une série d'observations
+dans le fichier de données, et pondéra t i on à une expression
+indiquant la variable et le mode de pondération des données.
+Enfin, après une virgule, on peut ajouter une ou plusieurs
+options pour l'exécution de la commande.
+La syntaxe complète pour chaque commande figure dans les
+manuels de référence de Stata, qui restent de ce point de vue
+irremplaçables. Mais puisque le préfixe by et les suffixes if, in
+et la pondération sont communs à la majorité des commandes,
+nous nous en tiendrons dans les chapitres suivants à exposer la
+syntaxe de base qui prend la forme: .
+
+
+`commande [listevar] [=exp] [, options]`
+
+Immédiatement après le nom de la commande, une liste de
+variables indique sur quelles variables doit s'effectuer la commande. Pour explorer le fichier « census.dta », on tapera:
+
+`list state region pop`
+
+(a) Le préfixe **by** 
+permet d'exécuter la commande pour chaque
+sous-ensemble d'observations défini pour chaque valeur de
+listevar. Avant d'exécuter la commande, le fichier doit
+d'abord être trié (avec la commande **sort** listevar) selon la
+même variable utilisée par le préfixe by. Par exemple, on aura:
+
+(c) Le suffixe *[in intervalle]*
+Le suffixe in est moins courant dans la pratique, car il suppose
+de bien connaître l'ordre dans lequel sont classées les
+observations du fichier. TI permet d'exécuter la commande pour
+certaines observations, par exemple:
+
+```{r}
+# sort region
+# by region: list region state pop medage
+```
+
+
+
+
+(b) Le suffixe *[if exp]*
+Le suffixe if restreint l'exécution de la commande au sousensemble
+des observations pour lesquelles l'expression logique
+exp est vraie, c'est-à-dire différente de la valeur O.
+Nous reviendrons dans la section consacrée aux calculs sur la
+manipulation de ces expressions logiques, dites encore
+booléennes. Pour l'heure, un exemple suffit à comprendre le
+fonctionnement de ce suffixe:
+
+`On préférera toujours sélectionner un sous-ensemble
+d'observation avec le suffixe if en fonction de variables bien
+connues et qui font sens, plutôt que de se fier à un ordre
+arbitraire des observations dans le fichier.` 
+
+
+
+
+
+
+### Les commandes de depart
+
+(1) **import** : charger la base des donnes dans la mémoire. Suivi de type des fichier. et le chemin d'accès du fichier
+(2) **clear** vide la mémoire
+(3) **use** au lieu de mettre tout le sentier. Ne pas oublier de mettre les  guillemets comme ils sont (noter le sens !).
+(4) **save** La commande `save datafile1.dta` est très importante : elle sauvegarde le fichier-données *(.dta)* modifié par le programme sous un autre nom que le fichier initial, ce qui permet de laisser ce dernier intouché. Sinon on altère le fichier initial de façon permanente, ce qui est en général un désastre. - De façon générale, les guillemets (comme dans cd “c:/path/directory”) sont obligatoires quand les noms spécifiés ne sont pas liés en un seul mot ; par exemple, Stata comprend use “le nom que je veux.dta” mais pas use le nom que je veux.dta.
+(4) **Describe** pour decrire la base des données
+
+
+
+### Creation et correction des variables
+
+
+(1) Les commandes *generate* et *replace* 
+    La commande generate crée de nouvelles variables. Elle a la syntaxe de base suivante: 
+    *[by listevar:] generate var = exp[if exp] [in intervalle]*
+    La commande replace utilise la même syntaxe, sauf qu'elle s'applique aux variables déjà existantes.
+
+
+  Comme on le voit, cette syntaxe est simple, ce qui n'est pas le cas de la forme que peut prendre exp. La première expression   exp (après le signe =) spécifie le contenu de la variable, c'est-àdire   le plus souvent une valeur numérique. La seconde   expression exp (après if) doit être formulée comme une   expression logique dont le résultat est soit vrai soit faux: la   création (ou le remplacement) de la variable est restreint aux   observations pour lesquelles le résultat de l'expression est vrai.   Cela n'a l'air de rien, mais la confusion entre les deux   expressions est certainement l'erreur la plus fréquente que peuvent faire les utilisateurs de Stata.
+
+
+(2) Les opérateurs
+
+Les opérateurs arithmétiques de Stata sont bien classiques:
++ (addition), - (soustraction), * (multiplication), 1 (division),
+A (puissance), tout comme les opérateurs relationnels
+> (supérieur), < (inférieur), >= (supérieur ou égal), <= (inférieur
+ou égal).
+
+C'est peut-être moins le cas des opérateurs relationnels == (égal)
+ou -= (différent, que l'on peut écrire aussi! =), et des opérateurs
+logique &. (et), 1 (ou bien), et - (non).
+
+En effet, Stata distingue le signe = (affectation d'une valeur) du
+signe == (égalité entre deux valeurs). Dans le cas d'une
+affectation d'une valeur à une variable, la variable apparaît à
+gauche du signe = tandis que la valeur affectée apparaît à droite:
+
+(3) Les expressions logiques dans R
+
+Les expressions logiques sont particulièrement utiles pour créer
+des variables dichotomiques, c'est-à-dire qui ne prennent que
+deux valeurs, 0 et 1. En effet, une expression logique, c'est-àdire
+une expression où interviennent les opérateurs relationnels
+>, <, >=, <=, ==, -=, !=, ou bien les opérateurs logiques &., 1, et
+-, est codée 1 lorsque son résultat est vrai, et codée 0 lorsque
+son résultat est faux.
+
+La commande tabulate possède une option generate ( ) bien
+pratique pour créer une série de variables dichotomiques à partir
+d'une variable polytomique. Exécutez la série de commandes:
+
+
+
+**La commande drop**
+
+

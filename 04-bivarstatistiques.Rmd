@@ -1,0 +1,61 @@
+# Les Statisiques Simples et leurs representation Graphiques
+(Statistiques Univariées)
+
+Avant de mener des analyses à l'aide de modèle de régression et
+autres statistiques complexes, il est préférable de tirer le
+maximum de l'exploration des données et de statistiques
+simples. Cela a deux avantages:
+
+- permettre de mieux connaître les données et donc de repérer
+leurs particularités et leurs éventuelles incohérences, ce qui
+pourra servir pour des analyses statistiques plus
+approfondies;
+- permettre de sélectionner des indices et des graphiques
+simples qui rendent le mieux compte des données afin de les
+restituer à un large public: les connaissances en statistique de
+la plupart des mortels ne dépassent guère le pourcentage, et
+de toute façon, même un public de spécialistes ne retiendra en
+définitive que les indices et les graphiques les plus simples.
+
+Stata offre de nombreuses commandes pour l'analyse
+exploratoire des données, autant sous forme de tableaux que de
+graphiques. Comme dans les chapitres précédents, nous
+utiliserons le fichier « census.dta » pour illustrer ces
+commandes.
+
+
+La commande *codebook* permet de faire le tri à plat de la base des données en montrant les sttatisques simples et univariées.  Et montre toute les informations nécéssaires à la compréhention de la structure d'une variable.
+
+La commande *summarize* listvar permet aussi de résumer
+la distribution, en particulier pour les variables numériques
+continues. Cela n'aurait pas grand sens, par exemple, de calculer
+la moyenne d'une variable discrète.
+
+L'option detail pennet une description plus precIse des
+variables continues, incluant les pourcentiles, les quatre plus
+grandes (Largest) et plus basses (Smallest) valeurs, ainsi
+qu'un indice de dissymétrie (la valeur de Skewness est °pour
+la distribution nonnale) et de concentration (la valeur de
+Kurtosis est de 3 pour la distribution normale.
+
+À l'inverse de la commande swmnarize, la commande tabulate est utile pour les variables discrètes.
+
+On remarque avec l'option nolabel (pour afficher les codes plutôt que les libellés), que les régions sont classées selon leur numéro de code:
+
+
+
+
+## Tableaux croisés à deux variables
+
+La commande tabulate devient vraiment intéressante pour croiser les distributions de deux variables discrètes. La syntaxe de base de cette commande est:  
+
+`tabulate varligne varcol[, cell column row missing nofreq wrap nolabel
+~ll chi2 exact gamma lrchi2 iaub v]`
+
+Les modalités de la première variable citée figurent en ligne, tandis que les modalités de la deuxième apparaissent en colonne. Des options permettent d'obtenir les pourcentages en ligne (row) , en colonne (column) ou par cellule (cell) du tableau:
+
+Pour afficher les pourcentages sans les fréquences, on utilisera l'option nofreq :
+
+
+### Tableaux croisés à trois variables ou plus
+

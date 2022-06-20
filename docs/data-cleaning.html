@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Data CLeaning | Stata-Support de formation</title>
+  <meta name="description" content="<p>Ce document est écrit comme support de formation dans le logiciel STATA.
+Nous ne prétendons pas aborder toutes les connaissances disponibles dans STATA,
+Neanmoins nou proposons les compétences éssentieles dans les aspects d’analyse des données, descriptives univarié, et dans la modélisation</p>" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Data CLeaning | Stata-Support de formation" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>Ce document est écrit comme support de formation dans le logiciel STATA.
+Nous ne prétendons pas aborder toutes les connaissances disponibles dans STATA,
+Neanmoins nou proposons les compétences éssentieles dans les aspects d’analyse des données, descriptives univarié, et dans la modélisation</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Data CLeaning | Stata-Support de formation" />
+  
+  <meta name="twitter:description" content="<p>Ce document est écrit comme support de formation dans le logiciel STATA.
+Nous ne prétendons pas aborder toutes les connaissances disponibles dans STATA,
+Neanmoins nou proposons les compétences éssentieles dans les aspects d’analyse des données, descriptives univarié, et dans la modélisation</p>" />
+  
+
+<meta name="author" content="Mulekya Schadra" />
+
+
+<meta name="date" content="2022-06-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="pries-en-main-du-logiciel.html"/>
+<link rel="next" href="les-statisiques-simples-et-leurs-representation-graphiques.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
+<li class="chapter" data-level="2" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html"><i class="fa fa-check"></i><b>2</b> Pries en main du logiciel</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#présentation-de-linterface"><i class="fa fa-check"></i><b>2.1</b> Présentation de l’interface</a></li>
+<li class="chapter" data-level="2.2" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#definition-de-lespace-de-travail"><i class="fa fa-check"></i><b>2.2</b> Definition de l’espace de travail</a></li>
+<li class="chapter" data-level="2.3" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#fenetres-aditionnelles-de-stata"><i class="fa fa-check"></i><b>2.3</b> fenetres aditionnelles de Stata</a></li>
+<li class="chapter" data-level="2.4" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#importation-de-la-base-des-données"><i class="fa fa-check"></i><b>2.4</b> importation de la base des données</a></li>
+<li class="chapter" data-level="2.5" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#fichier-do-do-file"><i class="fa fa-check"></i><b>2.5</b> Fichier do (do-file)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>3</b> Data CLeaning</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-cleaning.html"><a href="data-cleaning.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="data-cleaning.html"><a href="data-cleaning.html#les-commandes-de-base"><i class="fa fa-check"></i><b>3.2</b> Les commandes de base</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-cleaning.html"><a href="data-cleaning.html#la-synthaxe-des-commandes-stata"><i class="fa fa-check"></i><b>3.2.1</b> La synthaxe des commandes stata</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-cleaning.html"><a href="data-cleaning.html#les-commandes-de-depart"><i class="fa fa-check"></i><b>3.2.2</b> Les commandes de depart</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-cleaning.html"><a href="data-cleaning.html#creation-et-correction-des-variables"><i class="fa fa-check"></i><b>3.2.3</b> Creation et correction des variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="les-statisiques-simples-et-leurs-representation-graphiques.html"><a href="les-statisiques-simples-et-leurs-representation-graphiques.html"><i class="fa fa-check"></i><b>4</b> Les Statisiques Simples et leurs representation Graphiques</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="les-statisiques-simples-et-leurs-representation-graphiques.html"><a href="les-statisiques-simples-et-leurs-representation-graphiques.html#tableaux-croisés-à-deux-variables"><i class="fa fa-check"></i><b>4.1</b> Tableaux croisés à deux variables</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="les-statisiques-simples-et-leurs-representation-graphiques.html"><a href="les-statisiques-simples-et-leurs-representation-graphiques.html#tableaux-croisés-à-trois-variables-ou-plus"><i class="fa fa-check"></i><b>4.1.1</b> Tableaux croisés à trois variables ou plus</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>5</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>5.1</b> Equations</a></li>
+<li class="chapter" data-level="5.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>5.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="5.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>5.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>6</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>6.1</b> Publishing</a></li>
+<li class="chapter" data-level="6.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>6.2</b> 404 pages</a></li>
+<li class="chapter" data-level="6.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>6.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Stata-Support de formation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-cleaning" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Data CLeaning<a href="data-cleaning.html#data-cleaning" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Introduction<a href="data-cleaning.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pourquoi manipuler les données en Stata et pas en Excel ? La raison est simple : pas mal des commandes que l’on va voir ci-dessous existent aussi en Excel et sont certes quelquefois plus simples (si on arrive à les trouver), mais par contre on perd vite le fil de ce que l’on a fait subir aux données avant de passer à l’estimation, et c’est parfois là que se cachent soit les quelques erreurs à l’origine de résultats grotesques soit, au contraire, les mauvais traitements infligés aux chiffres pour obtenir le résultat désiré.</p>
+<p>Avec Stata, on peut garder la trace de toutes les manipulations dans le do-file. Celui-ci doit contenir toutes les commandes permettant de passer du fichier-données brut à celui qui est prêt à l’estimation. Il est alors facile de retrouver l’erreur qui tue ou bien de vérifier ce que les chiffres ont subi entre les mains du bourreau avant d’avouer.</p>
+<p>La manipulation des données sous stata consiste à</p>
+<ul>
+<li>Typage des variable</li>
+<li>remplaceme nt des valeurs manquantes</li>
+<li>remplacement de certaines variables sous certaines conditions</li>
+<li>codification des variable</li>
+<li>recodage des variables</li>
+</ul>
+<p>Ainsi, dans uune base des donénes, avant de commencer le nettoyage de la base des donnée sil surffit d’avoir une vue gloobale sur cette base en conaissant les caractéristiques générales de différnetes variables contenues dans la base des données.
+Ainsi, nous utilisons les commandes suivantes :</p>
+<ol style="list-style-type: decimal">
+<li><strong>describe</strong> : permet de décrire toutes les variables de la base des données chargée en mémoire. il nous amène en sortie: le nombre des observation, le nombre des variables, les noms des variables , les labeks et les types de chaque variable sous forme de tableau. //Avec les options <em>short</em> pour affichier le nom des variables, <em>simple</em> pour affcicher le nombre des variables et le nombre d’observations dans la BD.</li>
+<li><strong>codebook</strong> pour voir les différentes ecaractéristiques des variables dans la base des données. utiliser codebook suivi du nom de la variable pour ne voir que les caractéristiques d’une seule variable ou une liste des variables.</li>
+<li>Visualisation de la BD sous forme de tableau
+<ul>
+<li><em>browse</em> pour affcicher uniquement;</li>
+<li><em>edit</em> pour pouvoir modifier manuellement les valeurs dans la base.</li>
+</ul></li>
+</ol>
+</div>
+<div id="les-commandes-de-base" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Les commandes de base<a href="data-cleaning.html#les-commandes-de-base" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="la-synthaxe-des-commandes-stata" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> La synthaxe des commandes stata<a href="data-cleaning.html#la-synthaxe-des-commandes-stata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Stata comme tous les logiciels, utilise un langage qui n’est ni de
+l’anglais, ni du français, mais son propre langage. Certes, les
+mots sont empruntés à la langue de Shakespeare, mais la syntaxe
+n’a rien à voir avec l’anglais. Hormis quelques exceptions, la
+syntaxe des commandes de Stata est:</p>
+<p><code>[by listevar:] commande [listevar] [=exp] [if exp] [in intervalle] [pondération] [, options]</code></p>
+<p>Le nom de la commande est évidemment obligatoire, et il peut
+éventuellement être précédé d’un préfixe by, et le plus souvent il
+est suivi d’un ou de plusieurs suffixes. Dans le cas de
+commandes particulièrement usuelles, il peut parfois être abrégé,
+comme par exemple d pour describe. Les suffixes sont entourés de crochets pour indiquer leur caractère optionnel:
+listevar correspond à une liste de variables, exp à une
+expression logique, intervalle à une série d’observations
+dans le fichier de données, et pondéra t i on à une expression
+indiquant la variable et le mode de pondération des données.
+Enfin, après une virgule, on peut ajouter une ou plusieurs
+options pour l’exécution de la commande.
+La syntaxe complète pour chaque commande figure dans les
+manuels de référence de Stata, qui restent de ce point de vue
+irremplaçables. Mais puisque le préfixe by et les suffixes if, in
+et la pondération sont communs à la majorité des commandes,
+nous nous en tiendrons dans les chapitres suivants à exposer la
+syntaxe de base qui prend la forme: .</p>
+<p><code>commande [listevar] [=exp] [, options]</code></p>
+<p>Immédiatement après le nom de la commande, une liste de
+variables indique sur quelles variables doit s’effectuer la commande. Pour explorer le fichier « census.dta », on tapera:</p>
+<p><code>list state region pop</code></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Le préfixe <strong>by</strong>
+permet d’exécuter la commande pour chaque
+sous-ensemble d’observations défini pour chaque valeur de
+listevar. Avant d’exécuter la commande, le fichier doit
+d’abord être trié (avec la commande <strong>sort</strong> listevar) selon la
+même variable utilisée par le préfixe by. Par exemple, on aura:</p></li>
+<li><p>Le suffixe <em>[in intervalle]</em>
+Le suffixe in est moins courant dans la pratique, car il suppose
+de bien connaître l’ordre dans lequel sont classées les
+observations du fichier. TI permet d’exécuter la commande pour
+certaines observations, par exemple:</p></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-cleaning.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sort region</span></span>
+<span id="cb2-2"><a href="data-cleaning.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># by region: list region state pop medage</span></span></code></pre></div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Le suffixe <em>[if exp]</em>
+Le suffixe if restreint l’exécution de la commande au sousensemble
+des observations pour lesquelles l’expression logique
+exp est vraie, c’est-à-dire différente de la valeur O.
+Nous reviendrons dans la section consacrée aux calculs sur la
+manipulation de ces expressions logiques, dites encore
+booléennes. Pour l’heure, un exemple suffit à comprendre le
+fonctionnement de ce suffixe:</li>
+</ol>
+<p><code>On préférera toujours sélectionner un sous-ensemble d'observation avec le suffixe if en fonction de variables bien connues et qui font sens, plutôt que de se fier à un ordre arbitraire des observations dans le fichier.</code></p>
+</div>
+<div id="les-commandes-de-depart" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Les commandes de depart<a href="data-cleaning.html#les-commandes-de-depart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><strong>import</strong> : charger la base des donnes dans la mémoire. Suivi de type des fichier. et le chemin d’accès du fichier</li>
+<li><strong>clear</strong> vide la mémoire</li>
+<li><strong>use</strong> au lieu de mettre tout le sentier. Ne pas oublier de mettre les guillemets comme ils sont (noter le sens !).</li>
+<li><strong>save</strong> La commande <code>save datafile1.dta</code> est très importante : elle sauvegarde le fichier-données <em>(.dta)</em> modifié par le programme sous un autre nom que le fichier initial, ce qui permet de laisser ce dernier intouché. Sinon on altère le fichier initial de façon permanente, ce qui est en général un désastre. - De façon générale, les guillemets (comme dans cd “c:/path/directory”) sont obligatoires quand les noms spécifiés ne sont pas liés en un seul mot ; par exemple, Stata comprend use “le nom que je veux.dta” mais pas use le nom que je veux.dta.</li>
+<li><strong>Describe</strong> pour decrire la base des données</li>
+</ol>
+</div>
+<div id="creation-et-correction-des-variables" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Creation et correction des variables<a href="data-cleaning.html#creation-et-correction-des-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Les commandes <em>generate</em> et <em>replace</em>
+La commande generate crée de nouvelles variables. Elle a la syntaxe de base suivante:
+<em>[by listevar:] generate var = exp[if exp] [in intervalle]</em>
+La commande replace utilise la même syntaxe, sauf qu’elle s’applique aux variables déjà existantes.</li>
+</ol>
+<p>Comme on le voit, cette syntaxe est simple, ce qui n’est pas le cas de la forme que peut prendre exp. La première expression exp (après le signe =) spécifie le contenu de la variable, c’est-àdire le plus souvent une valeur numérique. La seconde expression exp (après if) doit être formulée comme une expression logique dont le résultat est soit vrai soit faux: la création (ou le remplacement) de la variable est restreint aux observations pour lesquelles le résultat de l’expression est vrai. Cela n’a l’air de rien, mais la confusion entre les deux expressions est certainement l’erreur la plus fréquente que peuvent faire les utilisateurs de Stata.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Les opérateurs</li>
+</ol>
+<p>Les opérateurs arithmétiques de Stata sont bien classiques:
++ (addition), - (soustraction), * (multiplication), 1 (division),
+A (puissance), tout comme les opérateurs relationnels
+&gt; (supérieur), &lt; (inférieur), &gt;= (supérieur ou égal), &lt;= (inférieur
+ou égal).</p>
+<p>C’est peut-être moins le cas des opérateurs relationnels == (égal)
+ou -= (différent, que l’on peut écrire aussi! =), et des opérateurs
+logique &amp;. (et), 1 (ou bien), et - (non).</p>
+<p>En effet, Stata distingue le signe = (affectation d’une valeur) du
+signe == (égalité entre deux valeurs). Dans le cas d’une
+affectation d’une valeur à une variable, la variable apparaît à
+gauche du signe = tandis que la valeur affectée apparaît à droite:</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Les expressions logiques dans R</li>
+</ol>
+<p>Les expressions logiques sont particulièrement utiles pour créer
+des variables dichotomiques, c’est-à-dire qui ne prennent que
+deux valeurs, 0 et 1. En effet, une expression logique, c’est-àdire
+une expression où interviennent les opérateurs relationnels
+&gt;, &lt;, &gt;=, &lt;=, ==, -=, !=, ou bien les opérateurs logiques &amp;., 1, et
+-, est codée 1 lorsque son résultat est vrai, et codée 0 lorsque
+son résultat est faux.</p>
+<p>La commande tabulate possède une option generate ( ) bien
+pratique pour créer une série de variables dichotomiques à partir
+d’une variable polytomique. Exécutez la série de commandes:</p>
+<p><strong>La commande drop</strong></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="pries-en-main-du-logiciel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="les-statisiques-simples-et-leurs-representation-graphiques.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-data-cleaning.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
