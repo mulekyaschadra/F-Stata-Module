@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Pries en main du logiciel | Stata-Support de formation</title>
+  <title>Chapter 5 Analyse des données de Logitudinales | Stata-Support de formation</title>
   <meta name="description" content="<p>Ce document est écrit comme support de formation dans le logiciel STATA.
 Nous ne prétendons pas aborder toutes les connaissances disponibles dans STATA,
 Neanmoins nou proposons les compétences éssentieles dans les aspects d’analyse des données, descriptives univarié, et dans la modélisation</p>" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Pries en main du logiciel | Stata-Support de formation" />
+  <meta property="og:title" content="Chapter 5 Analyse des données de Logitudinales | Stata-Support de formation" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>Ce document est écrit comme support de formation dans le logiciel STATA.
@@ -19,7 +19,7 @@ Neanmoins nou proposons les compétences éssentieles dans les aspects d’analy
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Pries en main du logiciel | Stata-Support de formation" />
+  <meta name="twitter:title" content="Chapter 5 Analyse des données de Logitudinales | Stata-Support de formation" />
   
   <meta name="twitter:description" content="<p>Ce document est écrit comme support de formation dans le logiciel STATA.
 Nous ne prétendons pas aborder toutes les connaissances disponibles dans STATA,
@@ -36,8 +36,8 @@ Neanmoins nou proposons les compétences éssentieles dans les aspects d’analy
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="data-cleaning.html"/>
+<link rel="prev" href="la-modélisation-avec-stata.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -212,78 +212,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pries-en-main-du-logiciel" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Pries en main du logiciel<a href="pries-en-main-du-logiciel.html#pries-en-main-du-logiciel" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>le logiciel est un programme de l’entreprise staa utilisé dans le domaine de l’économie et de l’économétrie dans le cadre d’analyse des données.</p>
-<p>Ce logiciel est manipulable sous deux angles :</p>
-<ul>
-<li>Interface graphique ;</li>
-<li>Intgerface de commande</li>
-</ul>
-<p>cette aspect des chose rend le logiciel Stata fléxible quand aux éxigences du moment: <code>la reproductibilité du travail dans l'analyse des données</code></p>
-<div id="présentation-de-linterface" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Présentation de l’interface<a href="pries-en-main-du-logiciel.html#présentation-de-linterface" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Voici comment resemble l’interface Stata à l’ouverture du programme:</p>
-<div class="figure">
-<img src="%22fenetre%20Stata.jpg%22" alt="" />
-<p class="caption">Presentation de l’interface Stata</p>
+<div id="analyse-des-données-de-logitudinales" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Analyse des données de Logitudinales<a href="analyse-des-données-de-logitudinales.html#analyse-des-données-de-logitudinales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-aux-series-temporelles" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction aux series temporelles<a href="analyse-des-données-de-logitudinales.html#introduction-aux-series-temporelles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<p>4 fenetres principales dont :</p>
-<ul>
-<li>La visionneuse des resultats</li>
-<li>La partie Commande</li>
-<li>la Vue des variables</li>
-<li>L’historique des commandes exécutées.</li>
-</ul>
-<ol style="list-style-type: decimal">
-<li>Le visionneuse des resultats sert à visualiser les résultats après exécution d’une quelconque tâche dans le cadre du travail sous Stata</li>
-<li>La partie Commande est la partie où on entre du code dans la syntax appropriée à stata, et selon la tâche que l’on souhaiterais éxécuter</li>
-<li>La partie vue des variables quand à elle, sert à montrer le nom des variables contenues dans la base des données et leurs caractéristiques tel que: le type des variables, leur format, les label. Les autres details sont affciché dans la fenêtre juste en bas: la partie propriété des variables</li>
-<li>La fênetre history quand à elle, sert montre l’ensemble des codes exécutées dans la sessions Stata dépuis le début du travail.</li>
-</ol>
-<p>à part ces interfaces, nous avons la base à outils et la bare des menus dans stata.</p>
-<p>Avec exécution que ce soit par l’utilisation de l’intrerface graphique ou de la partie commande, tout travail passe par l’invité de commande.</p>
-<p><em>Stata étant un logiciel dédié à l’analyse des données nous allons passer direcetement par la partie qui consiste à charger une base des données dans le mémoire Stata: <code>Importation</code>.</em></p>
+<div id="données-de-panel" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Données de Panel<a href="analyse-des-données-de-logitudinales.html#données-de-panel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="definition-de-lespace-de-travail" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Definition de l’espace de travail<a href="pries-en-main-du-logiciel.html#definition-de-lespace-de-travail" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En anglais <em>working direcrorie</em> est le dossier de lecture et d’écriture d’un programme par défaut. Pour toute session de stata, le repertoire (directory) est les dossier <em>mes documents</em>. celui-ci est changé par la commande <strong>cd</strong> pour signifier <em>change directorie</em> et suivi du chemin d’accès complet à ce repertoire.</p>
-<p>pour connaitre le chemin d’accès ç un repertoire donnée, il suffit de se selectionner ce dossier et de faire menu contextuelle tout en appuyant le bouton shift du clavier et choisir l’option <em>copier en tant que chemin d’accès</em> et ensuite coller dans stata après le mot clé <em>cd</em>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="pries-en-main-du-logiciel.html#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># cd &quot;E:\ MES CONSULTANCES\Dr Franck\Stata Learning&quot; pour spécifier le </span></span>
-<span id="cb1-2"><a href="pries-en-main-du-logiciel.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  dossier *Stata learning comme repoirtoire de travail pour la </span></span>
-<span id="cb1-3"><a href="pries-en-main-du-logiciel.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># session stata. Changer les *\* en */*.</span></span></code></pre></div>
-<p><code>Exemlple: cd "E:/MES CONSULTANCES/Dr Franck/Stata Learning" pour spécifier le dossier *Stata learning comme repoirtoire de travail pour la session stata.</code></p>
-</div>
-<div id="fenetres-aditionnelles-de-stata" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> fenetres aditionnelles de Stata<a href="pries-en-main-du-logiciel.html#fenetres-aditionnelles-de-stata" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li>Data editor / Data browser pour visualiser les données chargée dans la mémoire sous forme de tableau de manière à faciliter leurs lectures comme s’il s’agissait d’un tableaur (excel par exemple).
-Data bowser est différent de data editor dans ce ses que ce premier permet de visualiser les données sans possibilité de modification, tandis que la le data editor quand à lui offre des possibilité de modification comme dans un tableur classique.</li>
-<li>Graph editor : pour visualiser les graphiques tracés dans stata, en permettant une certaine modification des élèments graphiques tel que le titre, le titre des axes, la vouleur des textes , …</li>
-<li>Variable manager qui permmet de visualiser et même des modofier les propriétes des variables contenue dans la base des données stata</li>
-<li>help : pour voir l’aide sur différentes opérations sous stata</li>
-</ol>
-<p>Ainsi donc, les points 1,2 et 4 font parti des fenêtres du type <code>viewer</code> dans <code>stata</code>.</p>
-</div>
-<div id="importation-de-la-base-des-données" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> importation de la base des données<a href="pries-en-main-du-logiciel.html#importation-de-la-base-des-données" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Stata offre plusieures possibilitées de lire les bases des données provenant de plusieures sources externes sont <em>excel, spss, sas,csv, …</em>.
-l’extention des bases des données propre à stata sont les fichiers <em>.dta</em>.</p>
-<p>pour importer une base des données sous stata, il faut utiliser la fonctiuon reab avec l’extention du fichier.</p>
-<ol style="list-style-type: decimal">
-<li>pour un fichier excel: read_excel avec le chemin d’accès complet du fichier, écrit sous forme de caractète .</li>
-<li>pour un fichier spss, la comande a comme mot clé <em>read_spss</em>
-ainsi de suite</li>
-</ol>
-<p>Dans le cadre de ce cours nous allons plus utiliser les fichiers venant de l’excel. Ainsi donc, nous exploiterons plus la fonction <em>read_excel</em> et les différents arguments qui viennent avec.
-Specifier la feuille qui contient nos données
-spécifier les noms des variables à la première ligne ou pas
-spécifier si toutes les données sont importées comme des chaines des caractères ou pas.</p>
-</div>
-<div id="fichier-do-do-file" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Fichier do (do-file)<a href="pries-en-main-du-logiciel.html#fichier-do-do-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Le dofile est est dichier dans lequel sont stockés les différentes commandes des stata, que l’on pourra exécuter plus tard , au besoin, pour des raisons de continuité et de reproductibilité du travail d’analyse des données.</p>
-<p>Notons que k’on peut choisir d’utiliser stata par son interface graphique que par sa partie commande.</p>
+<div id="analuse-de-survie" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Analuse de Survie<a href="analyse-des-données-de-logitudinales.html#analuse-de-survie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
@@ -292,8 +230,8 @@ spécifier si toutes les données sont importées comme des chaines des caractè
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-cleaning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="la-modélisation-avec-stata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -324,7 +262,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-prise.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/06-multivaria-explor.Rmd",
 "text": "Edit"
 },
 "history": {

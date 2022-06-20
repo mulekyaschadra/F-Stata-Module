@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Les Statisiques Simples et leurs representation Graphiques | Stata-Support de formation</title>
+  <title>Chapter 3 Les Statisiques Simples et leurs representation Graphiques | Stata-Support de formation</title>
   <meta name="description" content="<p>Ce document est écrit comme support de formation dans le logiciel STATA.
 Nous ne prétendons pas aborder toutes les connaissances disponibles dans STATA,
 Neanmoins nou proposons les compétences éssentieles dans les aspects d’analyse des données, descriptives univarié, et dans la modélisation</p>" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Les Statisiques Simples et leurs representation Graphiques | Stata-Support de formation" />
+  <meta property="og:title" content="Chapter 3 Les Statisiques Simples et leurs representation Graphiques | Stata-Support de formation" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>Ce document est écrit comme support de formation dans le logiciel STATA.
@@ -19,7 +19,7 @@ Neanmoins nou proposons les compétences éssentieles dans les aspects d’analy
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Les Statisiques Simples et leurs representation Graphiques | Stata-Support de formation" />
+  <meta name="twitter:title" content="Chapter 3 Les Statisiques Simples et leurs representation Graphiques | Stata-Support de formation" />
   
   <meta name="twitter:description" content="<p>Ce document est écrit comme support de formation dans le logiciel STATA.
 Nous ne prétendons pas aborder toutes les connaissances disponibles dans STATA,
@@ -37,7 +37,7 @@ Neanmoins nou proposons les compétences éssentieles dans les aspects d’analy
   
   
 <link rel="prev" href="data-cleaning.html"/>
-<link rel="next" href="blocks.html"/>
+<link rel="next" href="la-modélisation-avec-stata.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -142,45 +142,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
-<li class="chapter" data-level="2" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html"><i class="fa fa-check"></i><b>2</b> Pries en main du logiciel</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="chapter" data-level="1" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html"><i class="fa fa-check"></i><b>1</b> Pries en main du logiciel</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#présentation-de-linterface"><i class="fa fa-check"></i><b>2.1</b> Présentation de l’interface</a></li>
-<li class="chapter" data-level="2.2" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#definition-de-lespace-de-travail"><i class="fa fa-check"></i><b>2.2</b> Definition de l’espace de travail</a></li>
-<li class="chapter" data-level="2.3" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#fenetres-aditionnelles-de-stata"><i class="fa fa-check"></i><b>2.3</b> fenetres aditionnelles de Stata</a></li>
-<li class="chapter" data-level="2.4" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#importation-de-la-base-des-données"><i class="fa fa-check"></i><b>2.4</b> importation de la base des données</a></li>
-<li class="chapter" data-level="2.5" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#fichier-do-do-file"><i class="fa fa-check"></i><b>2.5</b> Fichier do (do-file)</a></li>
+<li class="chapter" data-level="1.1" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#présentation-de-linterface"><i class="fa fa-check"></i><b>1.1</b> Présentation de l’interface</a></li>
+<li class="chapter" data-level="1.2" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#definition-de-lespace-de-travail"><i class="fa fa-check"></i><b>1.2</b> Definition de l’espace de travail</a></li>
+<li class="chapter" data-level="1.3" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#fenetres-aditionnelles-de-stata"><i class="fa fa-check"></i><b>1.3</b> fenetres aditionnelles de Stata</a></li>
+<li class="chapter" data-level="1.4" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#importation-de-la-base-des-données"><i class="fa fa-check"></i><b>1.4</b> importation de la base des données</a></li>
+<li class="chapter" data-level="1.5" data-path="pries-en-main-du-logiciel.html"><a href="pries-en-main-du-logiciel.html#fichier-do-do-file"><i class="fa fa-check"></i><b>1.5</b> Fichier do (do-file)</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>3</b> Data CLeaning</a>
+<li class="chapter" data-level="2" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>2</b> Data CLeaning</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="data-cleaning.html"><a href="data-cleaning.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="data-cleaning.html"><a href="data-cleaning.html#les-commandes-de-base"><i class="fa fa-check"></i><b>3.2</b> Les commandes de base</a>
+<li class="chapter" data-level="2.1" data-path="data-cleaning.html"><a href="data-cleaning.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="data-cleaning.html"><a href="data-cleaning.html#les-commandes-de-base"><i class="fa fa-check"></i><b>2.2</b> Les commandes de base</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="data-cleaning.html"><a href="data-cleaning.html#la-synthaxe-des-commandes-stata"><i class="fa fa-check"></i><b>3.2.1</b> La synthaxe des commandes stata</a></li>
-<li class="chapter" data-level="3.2.2" data-path="data-cleaning.html"><a href="data-cleaning.html#les-commandes-de-depart"><i class="fa fa-check"></i><b>3.2.2</b> Les commandes de depart</a></li>
-<li class="chapter" data-level="3.2.3" data-path="data-cleaning.html"><a href="data-cleaning.html#creation-et-correction-des-variables"><i class="fa fa-check"></i><b>3.2.3</b> Creation et correction des variables</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="les-statisiques-simples-et-leurs-representation-graphiques.html"><a href="les-statisiques-simples-et-leurs-representation-graphiques.html"><i class="fa fa-check"></i><b>4</b> Les Statisiques Simples et leurs representation Graphiques</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="les-statisiques-simples-et-leurs-representation-graphiques.html"><a href="les-statisiques-simples-et-leurs-representation-graphiques.html#tableaux-croisés-à-deux-variables"><i class="fa fa-check"></i><b>4.1</b> Tableaux croisés à deux variables</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="les-statisiques-simples-et-leurs-representation-graphiques.html"><a href="les-statisiques-simples-et-leurs-representation-graphiques.html#tableaux-croisés-à-trois-variables-ou-plus"><i class="fa fa-check"></i><b>4.1.1</b> Tableaux croisés à trois variables ou plus</a></li>
+<li class="chapter" data-level="2.2.1" data-path="data-cleaning.html"><a href="data-cleaning.html#la-synthaxe-des-commandes-stata"><i class="fa fa-check"></i><b>2.2.1</b> La synthaxe des commandes stata</a></li>
+<li class="chapter" data-level="2.2.2" data-path="data-cleaning.html"><a href="data-cleaning.html#les-commandes-de-depart"><i class="fa fa-check"></i><b>2.2.2</b> Les commandes de depart</a></li>
+<li class="chapter" data-level="2.2.3" data-path="data-cleaning.html"><a href="data-cleaning.html#creation-et-correction-des-variables"><i class="fa fa-check"></i><b>2.2.3</b> Creation et correction des variables</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>5</b> Blocks</a>
+<li class="chapter" data-level="3" data-path="les-statisiques-simples-et-leurs-representation-graphiques.html"><a href="les-statisiques-simples-et-leurs-representation-graphiques.html"><i class="fa fa-check"></i><b>3</b> Les Statisiques Simples et leurs representation Graphiques</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>5.1</b> Equations</a></li>
-<li class="chapter" data-level="5.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>5.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="5.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>5.3</b> Callout blocks</a></li>
+<li class="chapter" data-level="3.1" data-path="les-statisiques-simples-et-leurs-representation-graphiques.html"><a href="les-statisiques-simples-et-leurs-representation-graphiques.html#tableaux-croisés-à-deux-variables"><i class="fa fa-check"></i><b>3.1</b> Tableaux croisés à deux variables</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="les-statisiques-simples-et-leurs-representation-graphiques.html"><a href="les-statisiques-simples-et-leurs-representation-graphiques.html#tableaux-croisés-à-trois-variables-ou-plus"><i class="fa fa-check"></i><b>3.1.1</b> Tableaux croisés à trois variables ou plus</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>6</b> Sharing your book</a>
+</ul></li>
+<li class="chapter" data-level="4" data-path="la-modélisation-avec-stata.html"><a href="la-modélisation-avec-stata.html"><i class="fa fa-check"></i><b>4</b> La Modélisation avec Stata</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>6.1</b> Publishing</a></li>
-<li class="chapter" data-level="6.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>6.2</b> 404 pages</a></li>
-<li class="chapter" data-level="6.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>6.3</b> Metadata for sharing</a></li>
+<li class="chapter" data-level="4.1" data-path="la-modélisation-avec-stata.html"><a href="la-modélisation-avec-stata.html#théorie-destimation"><i class="fa fa-check"></i><b>4.1</b> Théorie d’Estimation</a></li>
+<li class="chapter" data-level="4.2" data-path="la-modélisation-avec-stata.html"><a href="la-modélisation-avec-stata.html#regtession-lineaire"><i class="fa fa-check"></i><b>4.2</b> Regtession lineaire</a></li>
+<li class="chapter" data-level="4.3" data-path="la-modélisation-avec-stata.html"><a href="la-modélisation-avec-stata.html#regression-logistique"><i class="fa fa-check"></i><b>4.3</b> regression Logistique</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="la-modélisation-avec-stata.html"><a href="la-modélisation-avec-stata.html#regresson-logistique-binoliale"><i class="fa fa-check"></i><b>4.3.1</b> Regresson logistique binoliale</a></li>
+<li class="chapter" data-level="4.3.2" data-path="la-modélisation-avec-stata.html"><a href="la-modélisation-avec-stata.html#regression-logistique-multinomiale"><i class="fa fa-check"></i><b>4.3.2</b> Regression Logistique Multinomiale</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="la-modélisation-avec-stata.html"><a href="la-modélisation-avec-stata.html#regression-logistique-ordonné"><i class="fa fa-check"></i><b>4.4</b> Regression Logistique Ordonné</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="analyse-des-données-de-logitudinales.html"><a href="analyse-des-données-de-logitudinales.html"><i class="fa fa-check"></i><b>5</b> Analyse des données de Logitudinales</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="analyse-des-données-de-logitudinales.html"><a href="analyse-des-données-de-logitudinales.html#introduction-aux-series-temporelles"><i class="fa fa-check"></i><b>5.1</b> Introduction aux series temporelles</a></li>
+<li class="chapter" data-level="5.2" data-path="analyse-des-données-de-logitudinales.html"><a href="analyse-des-données-de-logitudinales.html#données-de-panel"><i class="fa fa-check"></i><b>5.2</b> Données de Panel</a></li>
+<li class="chapter" data-level="5.3" data-path="analyse-des-données-de-logitudinales.html"><a href="analyse-des-données-de-logitudinales.html#analuse-de-survie"><i class="fa fa-check"></i><b>5.3</b> Analuse de Survie</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="6" data-path="analyses-exploratioires.html"><a href="analyses-exploratioires.html"><i class="fa fa-check"></i><b>6</b> Analyses Exploratioires</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="analyses-exploratioires.html"><a href="analyses-exploratioires.html#acp"><i class="fa fa-check"></i><b>6.1</b> ACP</a></li>
+<li class="chapter" data-level="6.2" data-path="analyses-exploratioires.html"><a href="analyses-exploratioires.html#afc"><i class="fa fa-check"></i><b>6.2</b> AFC</a></li>
+<li class="chapter" data-level="6.3" data-path="analyses-exploratioires.html"><a href="analyses-exploratioires.html#acm"><i class="fa fa-check"></i><b>6.3</b> ACM</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -201,8 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="les-statisiques-simples-et-leurs-representation-graphiques" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Les Statisiques Simples et leurs representation Graphiques<a href="les-statisiques-simples-et-leurs-representation-graphiques.html#les-statisiques-simples-et-leurs-representation-graphiques" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="les-statisiques-simples-et-leurs-representation-graphiques" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Les Statisiques Simples et leurs representation Graphiques<a href="les-statisiques-simples-et-leurs-representation-graphiques.html#les-statisiques-simples-et-leurs-representation-graphiques" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>(Statistiques Univariées)</p>
 <p>Avant de mener des analyses à l’aide de modèle de régression et
 autres statistiques complexes, il est préférable de tirer le
@@ -238,14 +249,14 @@ la distribution nonnale) et de concentration (la valeur de
 Kurtosis est de 3 pour la distribution normale.</p>
 <p>À l’inverse de la commande swmnarize, la commande tabulate est utile pour les variables discrètes.</p>
 <p>On remarque avec l’option nolabel (pour afficher les codes plutôt que les libellés), que les régions sont classées selon leur numéro de code:</p>
-<div id="tableaux-croisés-à-deux-variables" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Tableaux croisés à deux variables<a href="les-statisiques-simples-et-leurs-representation-graphiques.html#tableaux-croisés-à-deux-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tableaux-croisés-à-deux-variables" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Tableaux croisés à deux variables<a href="les-statisiques-simples-et-leurs-representation-graphiques.html#tableaux-croisés-à-deux-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La commande tabulate devient vraiment intéressante pour croiser les distributions de deux variables discrètes. La syntaxe de base de cette commande est:</p>
 <p><code>tabulate varligne varcol[, cell column row missing nofreq wrap nolabel ~ll chi2 exact gamma lrchi2 iaub v]</code></p>
 <p>Les modalités de la première variable citée figurent en ligne, tandis que les modalités de la deuxième apparaissent en colonne. Des options permettent d’obtenir les pourcentages en ligne (row) , en colonne (column) ou par cellule (cell) du tableau:</p>
 <p>Pour afficher les pourcentages sans les fréquences, on utilisera l’option nofreq :</p>
-<div id="tableaux-croisés-à-trois-variables-ou-plus" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Tableaux croisés à trois variables ou plus<a href="les-statisiques-simples-et-leurs-representation-graphiques.html#tableaux-croisés-à-trois-variables-ou-plus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tableaux-croisés-à-trois-variables-ou-plus" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Tableaux croisés à trois variables ou plus<a href="les-statisiques-simples-et-leurs-representation-graphiques.html#tableaux-croisés-à-trois-variables-ou-plus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>
@@ -256,7 +267,7 @@ Kurtosis est de 3 pour la distribution normale.</p>
         </div>
       </div>
 <a href="data-cleaning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="blocks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="la-modélisation-avec-stata.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -310,20 +321,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

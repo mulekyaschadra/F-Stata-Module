@@ -15,7 +15,7 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
-# About
+# About {-}
 
 
 Ce document est écrit comme support de formation dans le logiciel STATA. une formation rélisé pour le Docteur Franc Lutu.
