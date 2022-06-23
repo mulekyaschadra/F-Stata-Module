@@ -5,19 +5,132 @@
 
 
 
-## Regtession lineaire
+## Regression lineaire
 
+Le modèle de régression linéaire simple est à la fois le modèle
+fondateur de tous les autres modèles de régression, le plus
+simple de tous ces modèles et le modèle qui offre le plus de
+variantes. Sa simplicité apparente est en fait tributaire de
+nombreuses hypothèses simplificatrices: l'histoire de ce modèle
+est une longue succession de tentatives pour lever ou minimiser
+ces hypothèses.
+
+En conséquence, un très grand nombre de procédures sont
+associées à ce modèle. Dans cette section, nous accorderons un
+intérêt tout particulier aux estimations robustes des coefficients
+de régression et de leur variance. En fin de section, nous
+aborderons le modèle de régression non linéaire (ou
+paramétrique).
+
+### La regression linéaire simple
+
+La commande de base pour la régression simple s'écrit
+simplement: 
+
+`regress vardep varindep`
+
+
+La variable dépendante doit obligatoirement se situer en début
+de liste, et elle est suivie des variables indépendantes. Ce
+principe vaut d'ailleurs pour toutes les procédures de régression.
+
+
+Les variables indépendantes peuvent être indifféremment
+continues ou discrètes. Dans le cas d'une variable polytomique,
+on peut soi-même créer une série de variables dichotomiques à
+l'aide de l'option gen( )de la commande tabulate (voir le
+chapitre Création et correction de variables) et éliminer la
+catégorie de référence :
+`tabulate region, gen(reg)`
+
+
+Mais il est beaucoup plus aisé de faire appel au préfixe xi qui
+crée automatiquement une série de variables dichotomiques à
+partir des variables marquées d'un i. dans la commande:
+`regress pctact pcturb i.region`
+
+### Regression multiple
+
+La commande pour la regression linéaire multiple est la même que pour la greqsion linéaire simple à la diffrérence d'une liste de plus d'une variable indépendant-explicative. Nous avons la commande suivante :
+
+`regress y x1 x2 x3 ...` 
+
+avec  y la variable dépendante et xi les variables explicatives dans le modèle de regression multiple
+
+Problème classiques de la regression (simple et ou multiple)
+
+(1) multicolinearité
+(2) autocorelation des erreurs
+(3) normalité des résidus
+
+
+### La régression multivariée
+
+La régression multivariée est en effet d'un
+usage peu courant et sert essentiellement à faire des tests
+complexes. La régression multiple disponible dans Stata est d'un
+usage délicat: elle distingue une équation principale et une
+équation secondaire dans la régression.
+
+Dans la régression multivariée, plusieurs variables dépendantes
+interviennent simultanément dans l'équation pour un même
+ensemble de variables indépendantes:
+
+
+`mvreg vardepl vardep2... : [varindep] [, corr ]`
+
+
+##### Regression non linéaire
+
+Rappelons que l'hypothèse principale de la régression classique
+est que la relation entre la variable dépendante et les variables
+indépendantes est... linéaire. Pour mieux se représenter
+l'importance de cette hypothèse, on peut imaginer un espace où
+chaque point représente la position de chaque observation: la
+régression linéaire consiste à tracer une droite à travers le nuage
+formé par ces points, de telle manière à minimiser la distance
+entre cette droite et ces points.
+
+La fonction de régression non linéaire doit être définie dans un
+sous-programme écrit dans le langage de Stata : cette procédure
+s'adresse bien évidemment aux utilisateurs avertis ayant une
+bonne connaissance des principes de programmation.
+Cependant, un certain nombre de fonctions courantes sont
+disponibles dans la version standard du logiciel, pour la
+régression sur une seule variable indépendante. La syntaxe de
+base de la régression non linéaire est:
+
+`nl fonction vardep varindep`
+
+Les fonctions courantes sont décrites dans le manuel de Stata. Il
+s'agit des fonctions exponentielles à deux ou trois paramètres
+(exp2, exp2a et exp3), des fonctions logistiques et de
+Gompertz à trois ou quatre paramètres (log3 et log4, gom3 et
+gom4).
 
 
 ## regression Logistique
 
+La regression logistique est un moddèle de regression à variable dépendante qualitative.
 
-
+Ces modèles s'appliquent aux situations où certains individus
+ont une caractéristique que d'autres n'ont pas. La modélisation a
+pour objectif de déterminer les facteurs qui peuvent expliquer la
+présence de cette caractéristique. En principe, le temps est
+considéré comme nul ou inopérant : comme dans le modèle de
+régression simple, le moment de l'observation est supposé
+unique (voir plus loin les modèles qui s'inspirent du modèle
+logistique tout en tenant compte du temps).
 
 ### Regresson logistique binoliale
 
+La variable à expliquer n'a que deux modalitées codées par des 0 ou des 1 (dichotomique)
 
 ### Regression Logistique Multinomiale
 
+La variable à expliquer est polytomique mais non ordonnée
 
-## Regression Logistique Ordonné
+
+### Regression Logistique Ordonné
+
+La variable à expliquer est polytomique et  ordonnée

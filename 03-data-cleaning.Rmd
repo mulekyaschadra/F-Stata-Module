@@ -9,7 +9,7 @@ output:
 
 Pourquoi manipuler les données en Stata et pas en Excel ? La raison est simple : pas mal des commandes que l’on va voir ci-dessous existent aussi en Excel et sont certes quelquefois plus simples (si on arrive à les trouver), mais par contre on perd vite le fil de ce que l’on a fait subir aux données avant de passer à l’estimation, et c’est parfois là que se cachent soit les quelques erreurs à l’origine de résultats grotesques soit, au contraire, les mauvais traitements infligés aux chiffres pour obtenir le résultat désiré.
 
-Avec Stata, on peut garder la trace de toutes les manipulations dans le do-file. Celui-ci doit contenir toutes les commandes permettant de passer du fichier-données brut à celui qui est prêt à l’estimation. Il est alors facile de retrouver l’erreur qui tue ou bien de vérifier ce que les chiffres ont subi entre les mains du bourreau avant d’avouer.
+Avec Stata, on peut garder la trace de toutes les manipulations dans le *do-file*. Celui-ci doit contenir toutes les commandes permettant de passer du fichier-données brut à celui qui est prêt à l’estimation. Il est alors facile de retrouver l’erreur qui tue ou bien de vérifier ce que les chiffres ont subi entre les mains du bourreau avant d’avouer.
 
 
 
@@ -48,8 +48,8 @@ Le nom de la commande est évidemment obligatoire, et il peut
 éventuellement être précédé d'un préfixe by, et le plus souvent il
 est suivi d'un ou de plusieurs suffixes. Dans le cas de
 commandes particulièrement usuelles, il peut parfois être abrégé,
-comme par exemple d pour describe. Les suffixes sont  entourés de crochets pour indiquer leur caractère optionnel:
-listevar correspond à une liste de variables, exp à une
+comme par exemple pour _describe_. Les suffixes sont  entourés de crochets pour indiquer leur caractère optionnel:
+_listevar_ correspond à une liste de variables, _exp_ à une
 expression logique, intervalle à une série d'observations
 dans le fichier de données, et pondéra t i on à une expression
 indiquant la variable et le mode de pondération des données.
@@ -57,10 +57,10 @@ Enfin, après une virgule, on peut ajouter une ou plusieurs
 options pour l'exécution de la commande.
 La syntaxe complète pour chaque commande figure dans les
 manuels de référence de Stata, qui restent de ce point de vue
-irremplaçables. Mais puisque le préfixe by et les suffixes if, in
+irremplaçables. Mais puisque le préfixe _by_ et les suffixes _if_, _in_
 et la pondération sont communs à la majorité des commandes,
 nous nous en tiendrons dans les chapitres suivants à exposer la
-syntaxe de base qui prend la forme: .
+syntaxe de base qui prend la forme: 
 
 
 `commande [listevar] [=exp] [, options]`
@@ -83,12 +83,10 @@ de bien connaître l'ordre dans lequel sont classées les
 observations du fichier. TI permet d'exécuter la commande pour
 certaines observations, par exemple:
 
-```{r}
-# sort region
-# by region: list region state pop medage
-```
 
+`sort region`
 
+`by region: list region state pop medage`
 
 
 (b) Le suffixe *[if exp]*
@@ -100,26 +98,17 @@ manipulation de ces expressions logiques, dites encore
 booléennes. Pour l'heure, un exemple suffit à comprendre le
 fonctionnement de ce suffixe:
 
-`On préférera toujours sélectionner un sous-ensemble
-d'observation avec le suffixe if en fonction de variables bien
-connues et qui font sens, plutôt que de se fier à un ordre
-arbitraire des observations dans le fichier.` 
-
-
-
-
+*On préférera toujours sélectionner un sous-ensemble d'observation avec le suffixe if en fonction de variables bien connues et qui font sens, plutôt que de se fier à un ordre arbitraire des observations dans le fichier. *
 
 
 ### Les commandes de depart
 
-(1) **import** : charger la base des donnes dans la mémoire. Suivi de type des fichier. et le chemin d'accès du fichier
+(0) **cd** pour spécifier le repertpoire de travail dans stata. Ex: cd `“c:/path/directory”`
+(1) **import** : charger la base des donnes dans la mémoire. Suivi de type des fichier. et le chemin d'accès du fichier;
 (2) **clear** vide la mémoire
 (3) **use** au lieu de mettre tout le sentier. Ne pas oublier de mettre les  guillemets comme ils sont (noter le sens !).
 (4) **save** La commande `save datafile1.dta` est très importante : elle sauvegarde le fichier-données *(.dta)* modifié par le programme sous un autre nom que le fichier initial, ce qui permet de laisser ce dernier intouché. Sinon on altère le fichier initial de façon permanente, ce qui est en général un désastre. - De façon générale, les guillemets (comme dans cd “c:/path/directory”) sont obligatoires quand les noms spécifiés ne sont pas liés en un seul mot ; par exemple, Stata comprend use “le nom que je veux.dta” mais pas use le nom que je veux.dta.
 (4) **Describe** pour decrire la base des données
-
-
-
 
 
 
@@ -140,11 +129,11 @@ en ren) permet de changer le nom de la variable qui suit. Sa syntax est
 
 
 (3) Les commandes *tostring* et *destring*
-ces commandes permettent de modifier le types des variables en string ou de modifier les string ne contenanr que des caractères numériques en variables numériques.
+ces commandes permettent de modifier le types des variables en string ou de modifier les string ne contenant que des caractères numériques en variables numériques.
  la commande _tostring*_ permet de mettre tous les caractètes de la base des données en chaines des caractères (strings) avec une ligne des codes.
  
 
-(2) Les opérateurs
+(2) Les opérateurs etbexpressions logiques dans Stata
 
 Les opérateurs arithmétiques de Stata sont bien classiques:
 + (addition), - (soustraction), * (multiplication), 1 (division),
@@ -160,9 +149,6 @@ En effet, Stata distingue le signe = (affectation d'une valeur) du
 signe == (égalité entre deux valeurs). Dans le cas d'une
 affectation d'une valeur à une variable, la variable apparaît à
 gauche du signe = tandis que la valeur affectée apparaît à droite:
-
-(3) Les expressions logiques dans R
-
 
 Les expressions logiques sont particulièrement utiles pour créer
 des variables dichotomiques, c'est-à-dire qui ne prennent que
@@ -180,15 +166,14 @@ d'une variable polytomique. Exécutez la série de commandes:
 
 (4) **La commande drop et la commande keep**
 
-Pour travailler sur une base de données pratique en vue des objectifs que vous avez, il sera  peut-être néecessaire de supprimer les variables inutiles ou les observations non concernées par vos estimations. La variable keep vous permet de garder et drop de jeter... facile, non ? On les utilise alternativement selon le nombre de variables µa garder ou µa jeter.
+Pour travailler sur une base de données pratique en vue des objectifs que vous avez, il sera  peut-être néecessaire de supprimer les variables inutiles ou les observations non concernées par vos estimations. La variable keep vous permet de garder et drop de jeter... facile, non ? On les utilise alternativement selon le nombre de variables àgarder ou àjeter.
 
 ` keep age salaire pays marital`
+
 ` drop age15 salred salaire150 fdsrt azerty`
 
-
-
 (6) Definir les labels des variables et des valeurs
-Avec les observations et les commandes logiques, il est possible de préciser ce que l'on veut effacer en le conditionnant µa la valeur d'autres variables. Par exemple, on garde les plus de 15 ans :
+Avec les observations et les commandes logiques, il est possible de préciser ce que l'on veut effacer en le conditionnant à la valeur d'autres variables. Par exemple, on garde les plus de 15 ans :
 
 `keep if age>=15` 
 ou bien on supprime les individus nés en 1945 et 1968 :
@@ -196,9 +181,9 @@ ou bien on supprime les individus nés en 1945 et 1968 :
 `drop if naissance==1915 | naissance==1968`
 
 
-(5) Les commandes sort et by
+(5) Les commandes *sort* et *by*
 La commande sort (abrégée en so) classe les données par ordre croissant. Il est possible de
-préciser les variables selon lesquelles le classement peut ^etre e®ectué :
+préciser les variables selon lesquelles le classement peut être e®ectué :
 
 
 `sort sexe age`
@@ -214,35 +199,21 @@ variable.
 Cela classe d'abord par sexe puis par ^age décroissant (les femmes et les vieux d'abord).
 Le processus by ... : qui doit suivre obligatoirement un classement avec sort permet d'uti-
 liser la plupart des commandes pour chaque valeur de la variable indiquée par by. Les exemples
-suivants vont vous aider µa comprendre le principe :
-
-
-
+suivants vont vous aider à comprendre le principe :
 
 
 ### Combiner différentes bases de données : append et merge
 
-Pour travailler de fa»con e±cace, il faut souvent réunir difféerentes bases de données. Selon le type de combination, on va utiliser une commande différennte.
+Pour travailler de façon éfficace, il faut souvent réunir difféerentes bases de données. Selon le type de combination, on va utiliser une commande différennte. 
 
+(1) Ajouter des observations Si vous disposer par exemple de données sur l'emploi dans différents pays et que vous avez une base de donnée par pays avec les mêmes variables (emploi, salaire, temps de travail...), alors vous souhaitez ajouter des observations (rajouter des lignes). Votre premier soin est de créer une variable pays dans chaque base de donnée en indiquant pour toutes les observations de ce pays le même nom ou code. Ensuite vous pouvez utiliser la commande append de la façon suivante :
 
+(2) Ajouter des variables Si vous souhaitez ajouter des variables, alors il faudra utiliser la commande _merge_. Par exemple, vous avez deux bases de données sur entreprise (les mêmes
+entreprises) et l'une donne des informations sur la production et l'autre sur les salariés. Si vous voulez calculer la productivité de ces entreprises, il faudra combiner ces deux bases. La procédure est légèrement plus complexe qu'avec _append_. Etant donné que certaines variables sont communes aux deux bases (au moins l'identifiant des entreprises), il faut classer ces variables avec sort dans les deux bases pour permettre au logiciel de faire la bonne fusion. 
 
-(1) Ajouter des observations Si vous disposer par exemple de données sur l'emploi dans di®érents
-pays et que vous avez une base de donnée par pays avec les m^emes variables (emploi, salaire,
-temps de travail...), alors vous souhaitez ajouter des observations (rajouter des lignes). Votre
-premier soin est de créer une variable pays dans chaque base de donnée en indiquant pour
-toutes les observations de ce pays le m^eme nom ou code. Ensuite vous pouvez utiliser la
-commande append de la fa»con suivante :
-
-(2) Ajouter des variables Si vous souhaitez ajouter des variables, alors il faudra utiliser la com-
-mande merge. Par exemple, vous avez deux bases de données sur entreprise (les m^emes
-entreprises) et l'une donne des informations sur la production et l'autre sur les salariés. Si vous voulez calculer la productivité de ces entreprises, il faudra combiner ces deux bases. La procédure est légèrement plus complexe qu'avec _append_. Etant donné que certaines variables sont communes aux deux bases (au moins l'identifiant des entreprises), il faut classer ces variables avec sort dans les deux bases pour permettre au logiciel de faire la bonne fusion.
-
-
-
-La commande merge crée la variable merge qui permet de vérfier que la fusion a été  réalisée
-comme voulu. Elle peut prendre trois valeurs :
+La commande merge crée la variable merge qui permet de vérfier que la fusion a été  réalisée comme voulu. Elle peut prendre trois valeurs :
 - Les observations de la base principale n'ont pas été retrouvées dans la base ajoutée
 (celle aprµes using)
 - Les observations de la base ajoutée n'ont pas été retrouvées dans la base principale
-- Les observations dans les deux bases ont été retrouvées et connectées.
-Il faut toujours véri¯er que l'opération s'est bien déroulée en regardant si merge prend des valeurs di®érentes de 3. Si ce n'est pas le cas alors regardez pour quelles observations l'opération n'a pas fonctionné.
+- Les observations dans les deux bases ont été retrouvées et connectées. 
+Il faut toujours véri¯er que l'opération s'est bien déroulée en regardant si merge prend des valeurs différentes de 3. Si ce n'est pas le cas alors regardez pour quelles observations l'opération n'a pas fonctionné.

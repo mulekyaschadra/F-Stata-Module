@@ -117,7 +117,7 @@
 
 \title{Stata-Support de formation}
 \author{Mulekya Schadra}
-\date{2022-06-20}
+\date{2022-06-23}
 
 \begin{document}
 \maketitle
@@ -208,7 +208,7 @@ Avec exécution que ce soit par l'utilisation de l'intrerface graphique ou de la
 
 En anglais \emph{working direcrorie} est le dossier de lecture et d'écriture d'un programme par défaut. Pour toute session de stata, le repertoire (directory) est les dossier \emph{mes documents}. celui-ci est changé par la commande \textbf{cd} pour signifier \emph{change directorie} et suivi du chemin d'accès complet à ce repertoire.
 
-pour connaitre le chemin d'accès ç un repertoire donnée, il suffit de se selectionner ce dossier et de faire menu contextuelle tout en appuyant le bouton shift du clavier et choisir l'option \emph{copier en tant que chemin d'accès} et ensuite coller dans stata après le mot clé \emph{cd}.
+pour connaitre le chemin d'accès est un repertoire donnée, il suffit de se selectionner ce dossier et de faire menu contextuelle tout en appuyant le bouton shift du clavier et choisir l'option \emph{copier en tant que chemin d'accès} et ensuite coller dans stata après le mot clé \emph{cd}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -227,14 +227,14 @@ pour connaitre le chemin d'accès ç un repertoire donnée, il suffit de se sele
 \def\labelenumi{(\arabic{enumi})}
 \tightlist
 \item
-  Data editor / Data browser pour visualiser les données chargée dans la mémoire sous forme de tableau de manière à faciliter leurs lectures comme s'il s'agissait d'un tableaur (excel par exemple).
+  \textbf{Data editor / Data browser} pour visualiser les données chargée dans la mémoire sous forme de tableau de manière à faciliter leurs lectures comme s'il s'agissait d'un tableaur (excel par exemple).
   Data bowser est différent de data editor dans ce ses que ce premier permet de visualiser les données sans possibilité de modification, tandis que la le data editor quand à lui offre des possibilité de modification comme dans un tableur classique.
 \item
-  Graph editor : pour visualiser les graphiques tracés dans stata, en permettant une certaine modification des élèments graphiques tel que le titre, le titre des axes, la vouleur des textes , \ldots{}
+  \textbf{Graph editor}: pour visualiser les graphiques tracés dans stata, en permettant une certaine modification des élèments graphiques tel que le titre, le titre des axes, la vouleur des textes , \ldots{}
 \item
-  Variable manager qui permmet de visualiser et même des modofier les propriétes des variables contenue dans la base des données stata
+  \textbf{Variable manager} qui permmet de visualiser et même des modofier les propriétes des variables contenue dans la base des données stata
 \item
-  help : pour voir l'aide sur différentes opérations sous stata
+  \textbf{help} : pour voir l'aide sur différentes opérations sous stata
 \end{enumerate}
 
 Ainsi donc, les points 1,2 et 4 font parti des fenêtres du type \texttt{viewer} dans \texttt{stata}.
@@ -245,22 +245,32 @@ Ainsi donc, les points 1,2 et 4 font parti des fenêtres du type \texttt{viewer}
 Stata offre plusieures possibilitées de lire les bases des données provenant de plusieures sources externes sont \emph{excel, spss, sas,csv, \ldots{}}.
 l'extention des bases des données propre à stata sont les fichiers \emph{.dta}.
 
-pour importer une base des données sous stata, il faut utiliser la fonctiuon reab avec l'extention du fichier.
+pour importer une base des données sous stata, il faut utiliser la fonctiuon \textbf{import} avec l'extention (ou le type) du fichier à partir duquel on souhaite importer le jeu des données.
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
 \tightlist
 \item
-  pour un fichier excel: read\_excel avec le chemin d'accès complet du fichier, écrit sous forme de caractète .
+  pour un fichier excel: \emph{import excel} avec le chemin d'accès complet du fichier, écrit sous forme de caractète .
 \item
-  pour un fichier spss, la comande a comme mot clé \emph{read\_spss}
+  pour un fichier spss, la comande a comme mot clé \emph{import }
   ainsi de suite
 \end{enumerate}
 
-Dans le cadre de ce cours nous allons plus utiliser les fichiers venant de l'excel. Ainsi donc, nous exploiterons plus la fonction \emph{read\_excel} et les différents arguments qui viennent avec.
+Dans le cadre de ce cours nous allons plus utiliser les fichiers venant de l'excel. Ainsi donc, nous exploiterons plus la fonction \emph{import excel} et les différents arguments qui viennent avec.
 Specifier la feuille qui contient nos données
 spécifier les noms des variables à la première ligne ou pas
 spécifier si toutes les données sont importées comme des chaines des caractères ou pas.
+
+A l'importation des données sous stata, i, y a des options à spécifier selon les caractéristiques de la base des données à importes :
+- La position des noms des variables : firstrow si ces noms se trouvent à la premeière ligne;
+- La feuille spécifique dans lequelle se trouve le jeu des donnnées: sheet(``nom de la feuille'') pour spécifier le noms de la feuille.
+
+Pour un fichier Excel voici la commande Spécifiant les différentes options :
+
+\texttt{import\ excel\ "Compi\_Cohortes.xlsx",\ firstrow\ sheet(Cohorte\_HM\_0905)}
+
+Ici, il s'agit d'ilporter les données du fichier excel \emph{``Compi\_Cohortes.xlsx''} dont les nom des variables se trouvent sur la première ligne, et le jeu des données dans la feuille \texttt{Cohorte\_HM\_0905}.
 
 \hypertarget{fichier-do-do-file}{%
 \section{Fichier do (do-file)}\label{fichier-do-do-file}}
@@ -268,6 +278,10 @@ spécifier si toutes les données sont importées comme des chaines des caractè
 Le dofile est est dichier dans lequel sont stockés les différentes commandes des stata, que l'on pourra exécuter plus tard , au besoin, pour des raisons de continuité et de reproductibilité du travail d'analyse des données.
 
 Notons que k'on peut choisir d'utiliser stata par son interface graphique que par sa partie commande.
+
+\textbf{Note}
+
+Le dofile est exécuté en entier en cliquant sur l'onglet do et en utilisant la raccouci clavier \textbf{ctrl+ D }(pour signier do:faire ou executer)et par ligne des commandes en utilisant le raccouci clavier \textbf{Ctrl+Alt+D} .
 
 \hypertarget{data-cleaning}{%
 \chapter{Data CLeaning}\label{data-cleaning}}
@@ -277,7 +291,7 @@ Notons que k'on peut choisir d'utiliser stata par son interface graphique que pa
 
 Pourquoi manipuler les données en Stata et pas en Excel ? La raison est simple : pas mal des commandes que l'on va voir ci-dessous existent aussi en Excel et sont certes quelquefois plus simples (si on arrive à les trouver), mais par contre on perd vite le fil de ce que l'on a fait subir aux données avant de passer à l'estimation, et c'est parfois là que se cachent soit les quelques erreurs à l'origine de résultats grotesques soit, au contraire, les mauvais traitements infligés aux chiffres pour obtenir le résultat désiré.
 
-Avec Stata, on peut garder la trace de toutes les manipulations dans le do-file. Celui-ci doit contenir toutes les commandes permettant de passer du fichier-données brut à celui qui est prêt à l'estimation. Il est alors facile de retrouver l'erreur qui tue ou bien de vérifier ce que les chiffres ont subi entre les mains du bourreau avant d'avouer.
+Avec Stata, on peut garder la trace de toutes les manipulations dans le \emph{do-file}. Celui-ci doit contenir toutes les commandes permettant de passer du fichier-données brut à celui qui est prêt à l'estimation. Il est alors facile de retrouver l'erreur qui tue ou bien de vérifier ce que les chiffres ont subi entre les mains du bourreau avant d'avouer.
 
 La manipulation des données sous stata consiste à
 
@@ -335,8 +349,8 @@ Le nom de la commande est évidemment obligatoire, et il peut
 éventuellement être précédé d'un préfixe by, et le plus souvent il
 est suivi d'un ou de plusieurs suffixes. Dans le cas de
 commandes particulièrement usuelles, il peut parfois être abrégé,
-comme par exemple d pour describe. Les suffixes sont entourés de crochets pour indiquer leur caractère optionnel:
-listevar correspond à une liste de variables, exp à une
+comme par exemple pour \emph{describe}. Les suffixes sont entourés de crochets pour indiquer leur caractère optionnel:
+\emph{listevar} correspond à une liste de variables, \emph{exp} à une
 expression logique, intervalle à une série d'observations
 dans le fichier de données, et pondéra t i on à une expression
 indiquant la variable et le mode de pondération des données.
@@ -344,10 +358,10 @@ Enfin, après une virgule, on peut ajouter une ou plusieurs
 options pour l'exécution de la commande.
 La syntaxe complète pour chaque commande figure dans les
 manuels de référence de Stata, qui restent de ce point de vue
-irremplaçables. Mais puisque le préfixe by et les suffixes if, in
+irremplaçables. Mais puisque le préfixe \emph{by} et les suffixes \emph{if}, \emph{in}
 et la pondération sont communs à la majorité des commandes,
 nous nous en tiendrons dans les chapitres suivants à exposer la
-syntaxe de base qui prend la forme: .
+syntaxe de base qui prend la forme:
 
 \texttt{commande\ {[}listevar{]}\ {[}=exp{]}\ {[},\ options{]}}
 
@@ -373,12 +387,9 @@ variables indique sur quelles variables doit s'effectuer la commande. Pour explo
   certaines observations, par exemple:
 \end{enumerate}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# sort region}
-\CommentTok{\# by region: list region state pop medage}
-\end{Highlighting}
-\end{Shaded}
+\texttt{sort\ region}
+
+\texttt{by\ region:\ list\ region\ state\ pop\ medage}
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
@@ -395,16 +406,19 @@ variables indique sur quelles variables doit s'effectuer la commande. Pour explo
   fonctionnement de ce suffixe:
 \end{enumerate}
 
-\texttt{On\ préférera\ toujours\ sélectionner\ un\ sous-ensemble\ d\textquotesingle{}observation\ avec\ le\ suffixe\ if\ en\ fonction\ de\ variables\ bien\ connues\ et\ qui\ font\ sens,\ plutôt\ que\ de\ se\ fier\ à\ un\ ordre\ arbitraire\ des\ observations\ dans\ le\ fichier.}
+\emph{On préférera toujours sélectionner un sous-ensemble d'observation avec le suffixe if en fonction de variables bien connues et qui font sens, plutôt que de se fier à un ordre arbitraire des observations dans le fichier. }
 
 \hypertarget{les-commandes-de-depart}{%
 \subsection{Les commandes de depart}\label{les-commandes-de-depart}}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{-1}
 \tightlist
 \item
-  \textbf{import} : charger la base des donnes dans la mémoire. Suivi de type des fichier. et le chemin d'accès du fichier
+  \textbf{cd} pour spécifier le repertpoire de travail dans stata. Ex: cd \texttt{“c:/path/directory”}
+\item
+  \textbf{import} : charger la base des donnes dans la mémoire. Suivi de type des fichier. et le chemin d'accès du fichier;
 \item
   \textbf{clear} vide la mémoire
 \item
@@ -439,10 +453,10 @@ Comme on le voit, cette syntaxe est simple, ce qui n'est pas le cas de la forme 
 \setcounter{enumi}{2}
 \item
   Les commandes \emph{tostring} et \emph{destring}
-  ces commandes permettent de modifier le types des variables en string ou de modifier les string ne contenanr que des caractères numériques en variables numériques.
+  ces commandes permettent de modifier le types des variables en string ou de modifier les string ne contenant que des caractères numériques en variables numériques.
   la commande \_tostring*\_ permet de mettre tous les caractètes de la base des données en chaines des caractères (strings) avec une ligne des codes.
 \item
-  Les opérateurs
+  Les opérateurs etbexpressions logiques dans Stata
 \end{enumerate}
 
 Les opérateurs arithmétiques de Stata sont bien classiques:
@@ -459,14 +473,6 @@ En effet, Stata distingue le signe = (affectation d'une valeur) du
 signe == (égalité entre deux valeurs). Dans le cas d'une
 affectation d'une valeur à une variable, la variable apparaît à
 gauche du signe = tandis que la valeur affectée apparaît à droite:
-
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  Les expressions logiques dans R
-\end{enumerate}
 
 Les expressions logiques sont particulièrement utiles pour créer
 des variables dichotomiques, c'est-à-dire qui ne prennent que
@@ -489,9 +495,10 @@ d'une variable polytomique. Exécutez la série de commandes:
   \textbf{La commande drop et la commande keep}
 \end{enumerate}
 
-Pour travailler sur une base de données pratique en vue des objectifs que vous avez, il sera peut-être néecessaire de supprimer les variables inutiles ou les observations non concernées par vos estimations. La variable keep vous permet de garder et drop de jeter\ldots{} facile, non ? On les utilise alternativement selon le nombre de variables µa garder ou µa jeter.
+Pour travailler sur une base de données pratique en vue des objectifs que vous avez, il sera peut-être néecessaire de supprimer les variables inutiles ou les observations non concernées par vos estimations. La variable keep vous permet de garder et drop de jeter\ldots{} facile, non ? On les utilise alternativement selon le nombre de variables àgarder ou àjeter.
 
 \texttt{keep\ age\ salaire\ pays\ marital}
+
 \texttt{drop\ age15\ salred\ salaire150\ fdsrt\ azerty}
 
 \begin{enumerate}
@@ -500,7 +507,7 @@ Pour travailler sur une base de données pratique en vue des objectifs que vous 
 \tightlist
 \item
   Definir les labels des variables et des valeurs
-  Avec les observations et les commandes logiques, il est possible de préciser ce que l'on veut effacer en le conditionnant µa la valeur d'autres variables. Par exemple, on garde les plus de 15 ans :
+  Avec les observations et les commandes logiques, il est possible de préciser ce que l'on veut effacer en le conditionnant à la valeur d'autres variables. Par exemple, on garde les plus de 15 ans :
 \end{enumerate}
 
 \texttt{keep\ if\ age\textgreater{}=15}
@@ -513,9 +520,9 @@ ou bien on supprime les individus nés en 1945 et 1968 :
 \setcounter{enumi}{4}
 \tightlist
 \item
-  Les commandes sort et by
+  Les commandes \emph{sort} et \emph{by}
   La commande sort (abrégée en so) classe les données par ordre croissant. Il est possible de
-  préciser les variables selon lesquelles le classement peut \^{}etre e®ectué :
+  préciser les variables selon lesquelles le classement peut être e®ectué :
 \end{enumerate}
 
 \texttt{sort\ sexe\ age}
@@ -531,35 +538,28 @@ variable.
 Cela classe d'abord par sexe puis par \^{}age décroissant (les femmes et les vieux d'abord).
 Le processus by \ldots{} : qui doit suivre obligatoirement un classement avec sort permet d'uti-
 liser la plupart des commandes pour chaque valeur de la variable indiquée par by. Les exemples
-suivants vont vous aider µa comprendre le principe :
+suivants vont vous aider à comprendre le principe :
 
 \hypertarget{combiner-diffuxe9rentes-bases-de-donnuxe9es-append-et-merge}{%
 \subsection{Combiner différentes bases de données : append et merge}\label{combiner-diffuxe9rentes-bases-de-donnuxe9es-append-et-merge}}
 
-Pour travailler de fa»con e±cace, il faut souvent réunir difféerentes bases de données. Selon le type de combination, on va utiliser une commande différennte.
+Pour travailler de façon éfficace, il faut souvent réunir difféerentes bases de données. Selon le type de combination, on va utiliser une commande différennte.
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
 \item
-  Ajouter des observations Si vous disposer par exemple de données sur l'emploi dans di®érents
-  pays et que vous avez une base de donnée par pays avec les m\^{}emes variables (emploi, salaire,
-  temps de travail\ldots), alors vous souhaitez ajouter des observations (rajouter des lignes). Votre
-  premier soin est de créer une variable pays dans chaque base de donnée en indiquant pour
-  toutes les observations de ce pays le m\^{}eme nom ou code. Ensuite vous pouvez utiliser la
-  commande append de la fa»con suivante :
+  Ajouter des observations Si vous disposer par exemple de données sur l'emploi dans différents pays et que vous avez une base de donnée par pays avec les mêmes variables (emploi, salaire, temps de travail\ldots), alors vous souhaitez ajouter des observations (rajouter des lignes). Votre premier soin est de créer une variable pays dans chaque base de donnée en indiquant pour toutes les observations de ce pays le même nom ou code. Ensuite vous pouvez utiliser la commande append de la façon suivante :
 \item
-  Ajouter des variables Si vous souhaitez ajouter des variables, alors il faudra utiliser la com-
-  mande merge. Par exemple, vous avez deux bases de données sur entreprise (les m\^{}emes
+  Ajouter des variables Si vous souhaitez ajouter des variables, alors il faudra utiliser la commande \emph{merge}. Par exemple, vous avez deux bases de données sur entreprise (les mêmes
   entreprises) et l'une donne des informations sur la production et l'autre sur les salariés. Si vous voulez calculer la productivité de ces entreprises, il faudra combiner ces deux bases. La procédure est légèrement plus complexe qu'avec \emph{append}. Etant donné que certaines variables sont communes aux deux bases (au moins l'identifiant des entreprises), il faut classer ces variables avec sort dans les deux bases pour permettre au logiciel de faire la bonne fusion.
 \end{enumerate}
 
-La commande merge crée la variable merge qui permet de vérfier que la fusion a été réalisée
-comme voulu. Elle peut prendre trois valeurs :
+La commande merge crée la variable merge qui permet de vérfier que la fusion a été réalisée comme voulu. Elle peut prendre trois valeurs :
 - Les observations de la base principale n'ont pas été retrouvées dans la base ajoutée
 (celle aprµes using)
 - Les observations de la base ajoutée n'ont pas été retrouvées dans la base principale
 - Les observations dans les deux bases ont été retrouvées et connectées.
-Il faut toujours véri¯er que l'opération s'est bien déroulée en regardant si merge prend des valeurs di®érentes de 3. Si ce n'est pas le cas alors regardez pour quelles observations l'opération n'a pas fonctionné.
+Il faut toujours véri¯er que l'opération s'est bien déroulée en regardant si merge prend des valeurs différentes de 3. Si ce n'est pas le cas alors regardez pour quelles observations l'opération n'a pas fonctionné.
 
 \hypertarget{analyse-univariuxe9-bivariuxe9e-et-graphiques}{%
 \chapter{Analyse Univarié, Bivariée et Graphiques}\label{analyse-univariuxe9-bivariuxe9e-et-graphiques}}
@@ -591,6 +591,9 @@ graphiques. Comme dans les chapitres précédents, nous
 utiliserons le fichier « census.dta » pour illustrer ces
 commandes.
 
+\hypertarget{analyses-univariuxe9es-et-bivariuxe9es}{%
+\section{Analyses univariées et bivariées}\label{analyses-univariuxe9es-et-bivariuxe9es}}
+
 La commande \emph{codebook} permet de faire le tri à plat de la base des données en montrant les sttatisques simples et univariées. Et montre toute les informations nécéssaires à la compréhention de la structure d'une variable.
 
 La commande \emph{summarize} listvar permet aussi de résumer
@@ -610,18 +613,150 @@ Kurtosis est de 3 pour la distribution normale.
 On remarque avec l'option nolabel (pour afficher les codes plutôt que les libellés), que les régions sont classées selon leur numéro de code:
 
 \hypertarget{tableaux-croisuxe9s-uxe0-deux-variables}{%
-\section{Tableaux croisés à deux variables}\label{tableaux-croisuxe9s-uxe0-deux-variables}}
+\subsection{Tableaux croisés à deux variables}\label{tableaux-croisuxe9s-uxe0-deux-variables}}
 
 La commande tabulate devient vraiment intéressante pour croiser les distributions de deux variables discrètes. La syntaxe de base de cette commande est:
 
-\texttt{tabulate\ varligne\ varcol{[},\ cell\ column\ row\ missing\ nofreq\ wrap\ nolabel\ \textasciitilde{}ll\ chi2\ exact\ gamma\ lrchi2\ iaub\ v{]}}
+\texttt{tabulate\ varligne\ varcol{[},\ cell\ column\ row\ missing\ nofreq\ wrap\ nolabel\ \ chi2\ exact\ gamma\ lrchi2\ iaub\ v{]}}
 
 Les modalités de la première variable citée figurent en ligne, tandis que les modalités de la deuxième apparaissent en colonne. Des options permettent d'obtenir les pourcentages en ligne (row) , en colonne (column) ou par cellule (cell) du tableau:
 
-Pour afficher les pourcentages sans les fréquences, on utilisera l'option nofreq :
+Pour afficher les pourcentages sans les fréquences, on utilisera l'option \emph{nofreq}.
 
-\hypertarget{tableaux-croisuxe9s-uxe0-trois-variables-ou-plus}{%
-\subsection{Tableaux croisés à trois variables ou plus}\label{tableaux-croisuxe9s-uxe0-trois-variables-ou-plus}}
+\emph{Tableaux croisés à trois variables}
+
+Le préfixe by listvar est utilisé pour produire des tableaux
+croisés à deux variables pour chaque combinaison des modalités
+des variables énumérées dans listvar. Si une seule variable
+est énumérée dans listvar, on obtient un tableau croisé à trois
+variables, si deux variables sont énumérées, un tableau croisé à
+quatre variables, etc. Le préfixe by nécessite un tri préalable
+selon les variables énumérées:
+
+\texttt{sort\ actif}
+
+\texttt{by\ urbain:\ tabulate\ actif\ region,\ all\ exact}
+
+L'option summarize (var) est une alternative au préfixe by
+pour obtenir le croisement de trois variables, ou plutôt le résumé
+d'une troisième variable dans les cases d'un tableau croisant
+deux variables. Par exemple, si l'on veut obtenir la population
+moyenne par États dans chacune des régions selon leur caractère
+urbain ou rural, on exécutera:
+
+\texttt{tabulate\ urbain\ region,\ summarize(pop)\ nostandard}
+
+On a ajouté l'option nostandard pour éviter le calcul des
+écarts types (standard deviation). Pour afficher seulement les populations moyennes (sans les effectifs), on peut ajouter
+l'option nofreq.
+
+L'option swnmarize () n'est pas seulement utile pour les
+variables continues, telles que les effectifs de population, les
+revenus, etc. Elle est aussi utile pour résumer les variables
+ordinales (voir exercice précédent) et aussi les variables
+dichotomiques. En effet, il faut savoir que la moyenne d'une
+variable dichotomique est une proportion. Par exemple, pour
+connaître la proportion d'États à dominante active selon la région et le caractère dominant urbain ou rural, on exécutera:
+
+\texttt{tabulate\ urbain\ region,\ summarize(actif)\ nostandard\ nofreq}
+
+\hypertarget{indroduction-aux-graphiques-sous-stata}{%
+\section{Indroduction aux graphiques sous Stata}\label{indroduction-aux-graphiques-sous-stata}}
+
+Stata permet d'obtenir rapidement une description des données,
+à l'aide de statistiques de distribution uni-, bi-, ou multivariée. En outre, Stata a aussi des capacitées visuelles importantes à exploiter lors de la description et de l'exploration des données.
+
+La commande graphique de Stata produit huit types de graphiques (histogramme, bâton, trait, boîte, point, matrice, étoile, camembert) qui peuvent être combinés, par exemple comme ceci:
+
+En outre, on peut associer diverses courbes de lissage aux graphiques uni- et bivariés (densité de Kemel, méthode des intervalles, etc.). La combinaison des diverses techniques de
+représentations sur un même graphique permet de synthétiser les informations :
+
+\texttt{graph\ pctact\ pcturb\ {[}fw=pop{]},\ twoway\ oneway\ box\ symbol((state{]})\ connect(m)\ band(5)\ tlab\ rlab}
+
+\hypertarget{commande-ppour-les-graphiques}{%
+\subsection{Commande ppour les graphiques}\label{commande-ppour-les-graphiques}}
+
+Pour ce qui concerne les options communes à tous les types de
+graphiques, la syntaxe de base de la commande \emph{graph} est:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{graph\ {[}listvar{]}}
+\item
+  \texttt{{[},options\ spécifiques\ au\ type\ de\ graphique}
+\item
+  \texttt{by(nonvar)\ total}
+\item
+  \texttt{x/y/r/tlabel\ x/y/r/ttick\ x/y/r/tline}
+\item
+  \texttt{x/y/rcale\ y/x/rlog}
+\item
+  \texttt{symbol(s...s)\ connect(c...c)}
+\item
+  \texttt{saving(nomfichier,{[}replace{]})\ \ {]}}
+\end{itemize}
+
+Les options communes concernent essentiellement la mise en
+forme du graphique: libellés (label), graduations (tick) , lignes
+(line) , échelle des axes (scale, log), symboles (symbol), liaison
+des points (connect). Nous n'avons fait figurer ici que les
+options les plus courantes. Pour une description des options
+avancées pour les titres, la taille des caractères, l'épaisseur des
+traits et les couleurs, voir les exemples qui sont donnés dans le
+manuel de référence aux entrées graph titles, graph textsize,
+graph pens, graph shading.
+
+Les options spécifiques au type de graphique sont décrites dans
+les sections suivantes, ainsi que les commandes spécifiques qui
+s'apparentent à la commande \emph{graph}.
+
+\hypertarget{les-variables-discruxe8tes}{%
+\subsubsection{Les variables discrètes}\label{les-variables-discruxe8tes}}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\tightlist
+\item
+  Graphiques de répartition discrète: barres, camemberts et étoiles
+\end{enumerate}
+
+La commande graph produit par défaut un histogramme
+lorsqu'une seule variable figure dans la liste des variables.
+Certaines options sont spécifiques aux histogrammes:
+
+Le graphique a sans doute plus d'intérêt si l'on croise deux
+variables discrètes avec l'option by () après avoir trié le fichier
+selon la variable spécifiée (voir le chapitre Création et
+correction de variables pour la création de la variable urbain) :
+
+\hypertarget{les-variables-continues}{%
+\subsubsection{Les variables continues}\label{les-variables-continues}}
+
+histogrammes
+
+boites à moustaches
+
+nuages des points et droite d'ajustement
+
+Les graphiques de distribution
+
+Les graphiques multivariées
+
+En fait, les graphiques dits multivariés sont des superpositions,
+ou des alignements de graphiques univariés ou bivariés. Nous
+avons déjà vu comment faire de tels graphiques avec l'option
+by (var) commune à de nombreuses commandes. Cette section
+est consacrée aux graphiques multivariés qui ne font pas appel à
+l'option by.
+
+L'option matrix établit une sene de graphiques bivariés
+croisant chaque paire de variables énumérées:
+
+\hypertarget{la-graph-editor}{%
+\subsubsection{La graph editor}\label{la-graph-editor}}
+
+C'est une interface graphique qui permet de spécifier les éléments graphiques tels que les titres, les titres des axes, la légende, \ldots{}
 
 \hypertarget{la-moduxe9lisation-avec-stata}{%
 \chapter{La Modélisation avec Stata}\label{la-moduxe9lisation-avec-stata}}
@@ -629,20 +764,143 @@ Pour afficher les pourcentages sans les fréquences, on utilisera l'option nofre
 \hypertarget{thuxe9orie-destimation}{%
 \section{Théorie d'Estimation}\label{thuxe9orie-destimation}}
 
-\hypertarget{regtession-lineaire}{%
-\section{Regtession lineaire}\label{regtession-lineaire}}
+\hypertarget{regression-lineaire}{%
+\section{Regression lineaire}\label{regression-lineaire}}
+
+Le modèle de régression linéaire simple est à la fois le modèle
+fondateur de tous les autres modèles de régression, le plus
+simple de tous ces modèles et le modèle qui offre le plus de
+variantes. Sa simplicité apparente est en fait tributaire de
+nombreuses hypothèses simplificatrices: l'histoire de ce modèle
+est une longue succession de tentatives pour lever ou minimiser
+ces hypothèses.
+
+En conséquence, un très grand nombre de procédures sont
+associées à ce modèle. Dans cette section, nous accorderons un
+intérêt tout particulier aux estimations robustes des coefficients
+de régression et de leur variance. En fin de section, nous
+aborderons le modèle de régression non linéaire (ou
+paramétrique).
+
+\hypertarget{la-regression-linuxe9aire-simple}{%
+\subsection{La regression linéaire simple}\label{la-regression-linuxe9aire-simple}}
+
+La commande de base pour la régression simple s'écrit
+simplement:
+
+\texttt{regress\ vardep\ varindep}
+
+La variable dépendante doit obligatoirement se situer en début
+de liste, et elle est suivie des variables indépendantes. Ce
+principe vaut d'ailleurs pour toutes les procédures de régression.
+
+Les variables indépendantes peuvent être indifféremment
+continues ou discrètes. Dans le cas d'une variable polytomique,
+on peut soi-même créer une série de variables dichotomiques à
+l'aide de l'option gen( )de la commande tabulate (voir le
+chapitre Création et correction de variables) et éliminer la
+catégorie de référence :
+\texttt{tabulate\ region,\ gen(reg)}
+
+Mais il est beaucoup plus aisé de faire appel au préfixe xi qui
+crée automatiquement une série de variables dichotomiques à
+partir des variables marquées d'un i. dans la commande:
+\texttt{regress\ pctact\ pcturb\ i.region}
+
+\hypertarget{regression-multiple}{%
+\subsection{Regression multiple}\label{regression-multiple}}
+
+La commande pour la regression linéaire multiple est la même que pour la greqsion linéaire simple à la diffrérence d'une liste de plus d'une variable indépendant-explicative. Nous avons la commande suivante :
+
+\texttt{regress\ y\ x1\ x2\ x3\ ...}
+
+avec y la variable dépendante et xi les variables explicatives dans le modèle de regression multiple
+
+Problème classiques de la regression (simple et ou multiple)
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\tightlist
+\item
+  multicolinearité
+\item
+  autocorelation des erreurs
+\item
+  normalité des résidus
+\end{enumerate}
+
+\hypertarget{la-ruxe9gression-multivariuxe9e}{%
+\subsection{La régression multivariée}\label{la-ruxe9gression-multivariuxe9e}}
+
+La régression multivariée est en effet d'un
+usage peu courant et sert essentiellement à faire des tests
+complexes. La régression multiple disponible dans Stata est d'un
+usage délicat: elle distingue une équation principale et une
+équation secondaire dans la régression.
+
+Dans la régression multivariée, plusieurs variables dépendantes
+interviennent simultanément dans l'équation pour un même
+ensemble de variables indépendantes:
+
+\texttt{mvreg\ vardepl\ vardep2...\ :\ {[}varindep{]}\ {[},\ corr\ {]}}
+
+\hypertarget{regression-non-linuxe9aire}{%
+\paragraph{Regression non linéaire}\label{regression-non-linuxe9aire}}
+
+Rappelons que l'hypothèse principale de la régression classique
+est que la relation entre la variable dépendante et les variables
+indépendantes est\ldots{} linéaire. Pour mieux se représenter
+l'importance de cette hypothèse, on peut imaginer un espace où
+chaque point représente la position de chaque observation: la
+régression linéaire consiste à tracer une droite à travers le nuage
+formé par ces points, de telle manière à minimiser la distance
+entre cette droite et ces points.
+
+La fonction de régression non linéaire doit être définie dans un
+sous-programme écrit dans le langage de Stata : cette procédure
+s'adresse bien évidemment aux utilisateurs avertis ayant une
+bonne connaissance des principes de programmation.
+Cependant, un certain nombre de fonctions courantes sont
+disponibles dans la version standard du logiciel, pour la
+régression sur une seule variable indépendante. La syntaxe de
+base de la régression non linéaire est:
+
+\texttt{nl\ fonction\ vardep\ varindep}
+
+Les fonctions courantes sont décrites dans le manuel de Stata. Il
+s'agit des fonctions exponentielles à deux ou trois paramètres
+(exp2, exp2a et exp3), des fonctions logistiques et de
+Gompertz à trois ou quatre paramètres (log3 et log4, gom3 et
+gom4).
 
 \hypertarget{regression-logistique}{%
 \section{regression Logistique}\label{regression-logistique}}
 
+La regression logistique est un moddèle de regression à variable dépendante qualitative.
+
+Ces modèles s'appliquent aux situations où certains individus
+ont une caractéristique que d'autres n'ont pas. La modélisation a
+pour objectif de déterminer les facteurs qui peuvent expliquer la
+présence de cette caractéristique. En principe, le temps est
+considéré comme nul ou inopérant : comme dans le modèle de
+régression simple, le moment de l'observation est supposé
+unique (voir plus loin les modèles qui s'inspirent du modèle
+logistique tout en tenant compte du temps).
+
 \hypertarget{regresson-logistique-binoliale}{%
 \subsection{Regresson logistique binoliale}\label{regresson-logistique-binoliale}}
+
+La variable à expliquer n'a que deux modalitées codées par des 0 ou des 1 (dichotomique)
 
 \hypertarget{regression-logistique-multinomiale}{%
 \subsection{Regression Logistique Multinomiale}\label{regression-logistique-multinomiale}}
 
+La variable à expliquer est polytomique mais non ordonnée
+
 \hypertarget{regression-logistique-ordonnuxe9}{%
-\section{Regression Logistique Ordonné}\label{regression-logistique-ordonnuxe9}}
+\subsection{Regression Logistique Ordonné}\label{regression-logistique-ordonnuxe9}}
+
+La variable à expliquer est polytomique et ordonnée
 
 \hypertarget{analyse-des-donnuxe9es-de-logitudinales}{%
 \chapter{Analyse des données de Logitudinales}\label{analyse-des-donnuxe9es-de-logitudinales}}

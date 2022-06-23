@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {1.2}Definition de l'espace de travail}{8}{section.1.2}%
 \contentsline {section}{\numberline {1.3}fenetres aditionnelles de Stata}{9}{section.1.3}%
 \contentsline {section}{\numberline {1.4}importation de la base des données}{9}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Fichier do (do-file)}{9}{section.1.5}%
+\contentsline {section}{\numberline {1.5}Fichier do (do-file)}{10}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Data CLeaning}{11}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Introduction}{11}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Les commandes de base}{12}{section.2.2}%
@@ -13,20 +13,29 @@
 \contentsline {subsection}{\numberline {2.2.3}Creation et correction des variables}{13}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Combiner différentes bases de données : append et merge}{15}{subsection.2.2.4}%
 \contentsline {chapter}{\numberline {3}Analyse Univarié, Bivariée et Graphiques}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Tableaux croisés à deux variables}{18}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Tableaux croisés à trois variables ou plus}{18}{subsection.3.1.1}%
-\contentsline {chapter}{\numberline {4}La Modélisation avec Stata}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Théorie d'Estimation}{19}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Regtession lineaire}{19}{section.4.2}%
-\contentsline {section}{\numberline {4.3}regression Logistique}{19}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Regresson logistique binoliale}{19}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Regression Logistique Multinomiale}{19}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Regression Logistique Ordonné}{19}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Analyse des données de Logitudinales}{21}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Introduction aux series temporelles}{21}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Données de Panel}{21}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Analyse de Survie}{21}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Analyses Exploratioires}{23}{chapter.6}%
-\contentsline {section}{\numberline {6.1}ACP}{23}{section.6.1}%
-\contentsline {section}{\numberline {6.2}AFC}{23}{section.6.2}%
-\contentsline {section}{\numberline {6.3}ACM}{23}{section.6.3}%
+\contentsline {section}{\numberline {3.1}Analyses univariées et bivariées}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Tableaux croisés à deux variables}{18}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Indroduction aux graphiques sous Stata}{19}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Commande ppour les graphiques}{19}{subsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}Les variables discrètes}{20}{subsubsection.3.2.1.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.2}Les variables continues}{20}{subsubsection.3.2.1.2}%
+\contentsline {subsubsection}{\numberline {3.2.1.3}La graph editor}{20}{subsubsection.3.2.1.3}%
+\contentsline {chapter}{\numberline {4}La Modélisation avec Stata}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Théorie d'Estimation}{21}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Regression lineaire}{21}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}La regression linéaire simple}{21}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Regression multiple}{22}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}La régression multivariée}{22}{subsection.4.2.3}%
+\contentsline {paragraph}{\numberline {4.2.3.0.1}Regression non linéaire}{22}{paragraph.4.2.3.0.1}%
+\contentsline {section}{\numberline {4.3}regression Logistique}{23}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Regresson logistique binoliale}{23}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Regression Logistique Multinomiale}{23}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Regression Logistique Ordonné}{23}{subsection.4.3.3}%
+\contentsline {chapter}{\numberline {5}Analyse des données de Logitudinales}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Introduction aux series temporelles}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Données de Panel}{25}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Analyse de Survie}{25}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Analyses Exploratioires}{27}{chapter.6}%
+\contentsline {section}{\numberline {6.1}ACP}{27}{section.6.1}%
+\contentsline {section}{\numberline {6.2}AFC}{27}{section.6.2}%
+\contentsline {section}{\numberline {6.3}ACM}{27}{section.6.3}%

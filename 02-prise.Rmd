@@ -37,7 +37,7 @@ Avec exécution que ce soit par l'utilisation de l'intrerface graphique ou de la
 
 En anglais *working direcrorie* est le dossier de lecture et d'écriture d'un programme par défaut. Pour toute session de stata, le repertoire (directory) est les dossier *mes documents*. celui-ci est changé par la commande **cd** pour signifier *change directorie* et suivi du chemin d'accès  complet à ce repertoire.
 
-pour connaitre le chemin d'accès ç un repertoire donnée, il suffit de se selectionner ce dossier et de faire menu contextuelle tout en appuyant le bouton shift du clavier et choisir l'option *copier en tant que chemin d'accès* et ensuite coller dans stata après le mot clé *cd*.
+pour connaitre le chemin d'accès est un repertoire donnée, il suffit de se selectionner ce dossier et de faire menu contextuelle tout en appuyant le bouton shift du clavier et choisir l'option *copier en tant que chemin d'accès* et ensuite coller dans stata après le mot clé *cd*.
 
 ```{r}
   # cd "E:\ MES CONSULTANCES\Dr Franck\Stata Learning" pour spécifier le 
@@ -50,14 +50,13 @@ pour connaitre le chemin d'accès ç un repertoire donnée, il suffit de se sele
 
 ##  fenetres aditionnelles de Stata
 
-(1) Data editor / Data browser pour visualiser les données chargée dans la mémoire sous forme de tableau de manière à faciliter leurs lectures comme s'il s'agissait d'un tableaur (excel par exemple).
+(1) **Data editor / Data browser** pour visualiser les données chargée dans la mémoire sous forme de tableau de manière à faciliter leurs lectures comme s'il s'agissait d'un tableaur (excel par exemple).
 Data bowser est différent de data editor dans ce ses que ce premier permet de visualiser les données sans possibilité de modification, tandis que la le data editor quand à lui offre des possibilité de modification comme dans un tableur classique.
-(2) Graph editor : pour visualiser les graphiques tracés dans stata, en permettant une certaine modification des élèments graphiques tel que le titre, le titre des axes, la vouleur des textes , ...
-(3) Variable manager qui permmet de visualiser et même des modofier les propriétes des variables contenue dans la base des données stata
-(4) help : pour voir l'aide sur différentes opérations sous stata
+(2) **Graph editor**: pour visualiser les graphiques tracés dans stata, en permettant une certaine modification des élèments graphiques tel que le titre, le titre des axes, la vouleur des textes , ...
+(3) **Variable manager** qui permmet de visualiser et même des modofier les propriétes des variables contenue dans la base des données stata
+(4) **help** : pour voir l'aide sur différentes opérations sous stata
 
 Ainsi donc, les points 1,2 et 4 font parti des fenêtres du type `viewer` dans `stata`.
-
 
 
 ## importation de la base des données
@@ -65,17 +64,28 @@ Ainsi donc, les points 1,2 et 4 font parti des fenêtres du type `viewer` dans `
 Stata offre plusieures possibilitées de lire les bases des données provenant de plusieures sources externes sont *excel, spss, sas,csv, ...*.
 l'extention des bases des données propre à stata sont les fichiers *.dta*. 
 
-pour importer une base des données sous stata, il faut utiliser la fonctiuon reab avec l'extention du fichier.
+pour importer une base des données sous stata, il faut utiliser la fonctiuon **import** avec l'extention (ou le type)  du fichier à partir duquel on souhaite importer le jeu des données.
 
-(1) pour un fichier excel: read_excel avec le chemin d'accès complet du fichier,  écrit sous forme de caractète .
-(2) pour un fichier spss, la comande a comme mot clé *read_spss*
+
+(1) pour un fichier excel: _import excel_ avec le chemin d'accès complet du fichier,  écrit sous forme de caractète .
+(2) pour un fichier spss, la comande a comme mot clé *import *
 ainsi de suite
 
-Dans le cadre de ce cours nous allons plus utiliser les fichiers venant de l'excel. Ainsi donc, nous exploiterons plus la fonction *read_excel* et les différents arguments qui viennent avec.
+Dans le cadre de ce cours nous allons plus utiliser les fichiers venant de l'excel. Ainsi donc, nous exploiterons plus la fonction *import excel* et les différents arguments qui viennent avec.
 Specifier la feuille qui contient nos données
 spécifier les  noms des variables à la première ligne ou pas
 spécifier si toutes les données sont importées comme des chaines des caractères ou pas.
 
+
+A l'importation des données sous stata, i, y a des options à spécifier selon les caractéristiques de la base des données à importes : 
+- La position des noms des variables : firstrow si ces noms se trouvent à la premeière ligne;
+- La feuille spécifique dans lequelle se trouve le jeu des donnnées: sheet("nom de la feuille")  pour spécifier le noms de la feuille.
+
+Pour un fichier Excel voici la commande Spécifiant les différentes options : 
+
+`import excel "Compi_Cohortes.xlsx", firstrow sheet(Cohorte_HM_0905) `
+
+Ici, il s'agit d'ilporter les données du fichier excel *"Compi_Cohortes.xlsx"* dont les nom des variables se trouvent sur la première ligne, et le jeu des données dans la feuille  `Cohorte_HM_0905`.
 
 ## Fichier do (do-file)
 
@@ -83,3 +93,6 @@ Le dofile est est dichier dans lequel sont stockés les différentes commandes d
 
 Notons que k'on peut choisir d'utiliser stata par son interface graphique que par sa partie commande.
 
+**Note**
+
+Le dofile est exécuté en entier en cliquant sur l'onglet do et en utilisant la raccouci clavier **ctrl+ D **(pour signier do:faire ou executer)et par ligne des commandes en utilisant le raccouci clavier **Ctrl+Alt+D** .
