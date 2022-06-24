@@ -117,7 +117,7 @@
 
 \title{Stata-Support de formation}
 \author{Mulekya Schadra}
-\date{2022-06-23}
+\date{2022-06-24}
 
 \begin{document}
 \maketitle
@@ -735,11 +735,57 @@ correction de variables pour la création de la variable urbain) :
 
 histogrammes
 
+elles servent à representer visuellement la distribution d'une variable quantitative que l'on découpe en classes.
+
 boites à moustaches
+
+Pour visualiser les paramètres de position d'une variable quantitative. La commande type est
+\texttt{graph\ box\ x} . Si on souhaite comparer la distritution de x dans les différentes sous-échantillon selon une variable qualitative, on ajoute l'option by ou over (avec la variable de groupe entre parenthèses) à la commande de base . On obtient la structure suivante :
+
+\texttt{graph\ box\ x,\ by(y)}
+\texttt{graph\ box\ x,\ over(y)}
 
 nuages des points et droite d'ajustement
 
+ce type de graphique est utilisé pour le croisement de deux variables quantitatives. Pour la representation visuelle de l'association entre deux variables quantitatives.
+La terminologie pour ce type de graphique est \textbf{scatter}.
+
+La synthaxe pour cette commande est
+
+\texttt{graph\ scatter\ y\ x}
+
+avec y la variable à placer en ordonnée et x la variable en abscisse
+
+Pour l'ajustement, on utilise la commande \texttt{lfit\ x\ y} avec \emph{lfit} l'argument pour spécifier la droite d'ajustement sous forme linéaire. On peut aussi utiliser la commande \emph{lowess} pour un ajustement sous forme de courbe.
+
+Note.
+
+Il est tout même possible de supperposer deux graphiques , à conditions que ces graphiques soit travé avec une même variabe en abscisse. La commande twoway est utilisée pour cette fin. La synthawe est la suivante :
+
+\texttt{graph\ twoway\ (scatter\ x\ y)\ (lfit\ x\ y)}
+
+dans le cas où on souhaiterait superposer le nuage des points des variables x, y et leur droite d'ajustement sur un seul graphique.
+
 Les graphiques de distribution
+
+ces graphiques sont utilisées lors que l'on souhaite voir ka distribution d'une variable , on que l'on souhaite ajuster la distribution empirique , à une distribution théorique : normal, poisson, exponentielle, exponentielle négative, weibull , \ldots{}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\tightlist
+\item
+  Kernel density et qnorm
+\end{enumerate}
+
+\texttt{kdensity\ x\ ,\ qnorm} pour tester la distribution d'une variable quantitative à la distribution typique d'une variable suivant la loi normal.
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Le Q-Q plot
+\end{enumerate}
 
 Les graphiques multivariées
 

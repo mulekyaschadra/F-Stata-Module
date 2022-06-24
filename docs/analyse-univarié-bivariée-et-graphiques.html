@@ -29,7 +29,7 @@ Neanmoins nou proposons les compétences éssentieles dans les aspects d’analy
 <meta name="author" content="Mulekya Schadra" />
 
 
-<meta name="date" content="2022-06-23" />
+<meta name="date" content="2022-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -345,9 +345,32 @@ correction de variables pour la création de la variable urbain) :</p>
 <div id="les-variables-continues" class="section level4 hasAnchor" number="3.2.1.2">
 <h4><span class="header-section-number">3.2.1.2</span> Les variables continues<a href="analyse-univarié-bivariée-et-graphiques.html#les-variables-continues" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>histogrammes</p>
+<p>elles servent à representer visuellement la distribution d’une variable quantitative que l’on découpe en classes.</p>
 <p>boites à moustaches</p>
+<p>Pour visualiser les paramètres de position d’une variable quantitative. La commande type est
+<code>graph box x</code> . Si on souhaite comparer la distritution de x dans les différentes sous-échantillon selon une variable qualitative, on ajoute l’option by ou over (avec la variable de groupe entre parenthèses) à la commande de base . On obtient la structure suivante :</p>
+<p><code>graph box x, by(y)</code>
+<code>graph box x, over(y)</code></p>
 <p>nuages des points et droite d’ajustement</p>
+<p>ce type de graphique est utilisé pour le croisement de deux variables quantitatives. Pour la representation visuelle de l’association entre deux variables quantitatives.
+La terminologie pour ce type de graphique est <strong>scatter</strong>.</p>
+<p>La synthaxe pour cette commande est</p>
+<p><code>graph scatter y x</code></p>
+<p>avec y la variable à placer en ordonnée et x la variable en abscisse</p>
+<p>Pour l’ajustement, on utilise la commande <code>lfit x y</code> avec <em>lfit</em> l’argument pour spécifier la droite d’ajustement sous forme linéaire. On peut aussi utiliser la commande <em>lowess</em> pour un ajustement sous forme de courbe.</p>
+<p>Note.</p>
+<p>Il est tout même possible de supperposer deux graphiques , à conditions que ces graphiques soit travé avec une même variabe en abscisse. La commande twoway est utilisée pour cette fin. La synthawe est la suivante :</p>
+<p><code>graph twoway (scatter x y) (lfit x y)</code></p>
+<p>dans le cas où on souhaiterait superposer le nuage des points des variables x, y et leur droite d’ajustement sur un seul graphique.</p>
 <p>Les graphiques de distribution</p>
+<p>ces graphiques sont utilisées lors que l’on souhaite voir ka distribution d’une variable , on que l’on souhaite ajuster la distribution empirique , à une distribution théorique : normal, poisson, exponentielle, exponentielle négative, weibull , …</p>
+<ol style="list-style-type: decimal">
+<li>Kernel density et qnorm</li>
+</ol>
+<p><code>kdensity x , qnorm</code> pour tester la distribution d’une variable quantitative à la distribution typique d’une variable suivant la loi normal.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Le Q-Q plot</li>
+</ol>
 <p>Les graphiques multivariées</p>
 <p>En fait, les graphiques dits multivariés sont des superpositions,
 ou des alignements de graphiques univariés ou bivariés. Nous
